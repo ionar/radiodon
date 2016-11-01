@@ -1,0 +1,27 @@
+<h1>Listando Clínicas</h1>
+<div class="text-right">
+  <%= link_to new_clinic_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span> Adicionar
+  <% end %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('fantasy_name') %></th>
+      <th><%= t('corporate_name') %></th>
+      <th><%= t('city') %></th>
+      <th><%= t('province') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clinics.each do |clinic| %>
+      <tr>
+        <td><%= link_to clinic.fantasy_name, clinic %></td>
+        <td><%= clinic.corporate_name %></td>
+        <td><%= clinic.city %></td>
+        <td><%= clinic.province.acronym %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

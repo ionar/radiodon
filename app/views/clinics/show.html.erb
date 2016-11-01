@@ -1,0 +1,63 @@
+<h1><%= @clinic.fantasy_name %></h1>
+<div class="text-right">
+  <%= link_to clinics_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to edit_clinic_path(@clinic), :class => 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-list-alt"></span> Editar
+  <% end %> 
+  <%= link_to clinic_path(@clinic), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
+<p>
+  <strong>Fome Fantasia:</strong>
+  <%= @clinic.fantasy_name %>
+</p>
+
+<p>
+  <strong>Razão Social:</strong>
+  <%= @clinic.corporate_name %>
+</p>
+<p>
+  <strong>Fone:</strong>
+  <%= @clinic.phone %>
+</p>
+<p>
+  <strong>Cnpj:</strong>
+  <%= @clinic.cnpj %>
+</p>
+
+<p>
+  <strong>Responsável Técnico:</strong>
+  <%= @clinic.technical_manager %>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
+  <%= @clinic.address %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @clinic.cep %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @clinic.city %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @clinic.province.name %>
+</p>
+
+<p>
+  <strong>Criado em:</strong>
+  <%=l @clinic.created_at, format: :long %>
+</p>
+<p>
+  <strong>Atualizado em:</strong>
+  <%=l @clinic.updated_at, format: :long %>
+</p>

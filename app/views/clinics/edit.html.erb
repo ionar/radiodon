@@ -1,0 +1,12 @@
+<h1>Editar Clínica</h1>
+<div class="text-right">
+  <%= link_to clinics_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to clinic_path(@clinic), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
+<%= render 'form' %>
+
+

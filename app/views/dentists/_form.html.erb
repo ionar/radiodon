@@ -1,0 +1,15 @@
+<%= simple_form_for(@dentist) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, :label => t("name") %>
+    <%= f.input :register, :label => t("register"), :hint => "Ex: CRO 3628" %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :notes, :label => t("notes") %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
