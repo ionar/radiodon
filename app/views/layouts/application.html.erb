@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'application/favicon' %>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -26,6 +27,7 @@
 			<li class="<%= active?('welcome')%>"><%= link_to "Home", root_path %></li>
 			<li class="<%= active?('clinics')%>"><%= link_to "Clinicas", clinics_path %></li>
 			<li class="<%= active?('dentists')%>"><%= link_to "Dentistas", dentists_path %></li>
+			<li class="<%= active?('patients')%>"><%= link_to "Pacientes", patients_path %></li>
 		</ul>
 	</div><!-- /.navbar-collapse -->
 </nav>

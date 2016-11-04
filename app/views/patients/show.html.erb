@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Clinic:</strong>
+  <%= @patient.clinic %>
+</p>
+
+<p>
+  <strong>Dentist:</strong>
+  <%= @patient.dentist %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @patient.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @patient.cpf %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @patient.rg %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @patient.gender %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @patient.birth_date %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @patient.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @patient.cep %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @patient.phone %>
+</p>
+
+<p>
+  <strong>Phone2:</strong>
+  <%= @patient.phone2 %>
+</p>
+
+<p>
+  <strong>Occupation:</strong>
+  <%= @patient.occupation %>
+</p>
+
+<p>
+  <strong>Mothers name:</strong>
+  <%= @patient.mothers_name %>
+</p>
+
+<p>
+  <strong>Fathers name:</strong>
+  <%= @patient.fathers_name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @patient.notes %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

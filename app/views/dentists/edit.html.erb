@@ -1,6 +1,10 @@
-<h1>Editing Dentist</h1>
-
+<h1>Editar <%= t("dentist") %></h1>
+<div class="text-right">
+  <%= link_to dentists_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to dentist_path(@dentist), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Show', @dentist %> |
-<%= link_to 'Back', dentists_path %>

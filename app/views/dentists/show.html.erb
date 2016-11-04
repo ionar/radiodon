@@ -1,12 +1,22 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= @dentist.name %></h1>
+<div class="text-right">
+  <%= link_to dentists_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to edit_dentist_path(@dentist), :class => 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-list-alt"></span> Editar
+  <% end %> 
+  <%= link_to dentist_path(@dentist), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
 <p>
-  <strong>Name:</strong>
+  <strong><%= t("name") %>:</strong>
   <%= @dentist.name %>
 </p>
 
 <p>
-  <strong>Register:</strong>
+  <strong><%= t("register") %>:</strong>
   <%= @dentist.register %>
 </p>
 
@@ -16,14 +26,20 @@
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t("phone") %>:</strong>
   <%= @dentist.phone %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= t("notes") %>:</strong>
   <%= @dentist.notes %>
 </p>
 
-<%= link_to 'Edit', edit_dentist_path(@dentist) %> |
-<%= link_to 'Back', dentists_path %>
+<p>
+  <strong>Criado em:</strong>
+  <%=l @dentist.created_at, format: :long %>
+</p>
+<p>
+  <strong>Atualizado em:</strong>
+  <%=l @dentist.updated_at, format: :long %>
+</p>

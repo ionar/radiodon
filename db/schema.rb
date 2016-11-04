@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101154402) do
+ActiveRecord::Schema.define(version: 20161104154837) do
 
   create_table "clinics", force: :cascade do |t|
     t.string   "fantasy_name",      limit: 255
@@ -39,6 +39,40 @@ ActiveRecord::Schema.define(version: 20161101154402) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "genders", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.integer  "clinic_id",    limit: 4
+    t.integer  "dentist_id",   limit: 4
+    t.string   "name",         limit: 255
+    t.string   "cpf",          limit: 255
+    t.string   "rg",           limit: 255
+    t.date     "birth_date"
+    t.string   "email",        limit: 255
+    t.string   "address",      limit: 255
+    t.string   "cep",          limit: 255
+    t.string   "phone",        limit: 255
+    t.string   "phone2",       limit: 255
+    t.string   "occupation",   limit: 255
+    t.string   "mothers_name", limit: 255
+    t.string   "fathers_name", limit: 255
+    t.text     "notes",        limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "city",         limit: 255
+    t.integer  "province_id",  limit: 4
+    t.integer  "gender_id",    limit: 4
+  end
+
+  add_index "patients", ["clinic_id"], name: "index_patients_on_clinic_id", using: :btree
+  add_index "patients", ["dentist_id"], name: "index_patients_on_dentist_id", using: :btree
+  add_index "patients", ["gender_id"], name: "index_patients_on_gender_id", using: :btree
+  add_index "patients", ["province_id"], name: "index_patients_on_province_id", using: :btree
+
   create_table "provinces", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "acronym",    limit: 255
@@ -65,4 +99,8 @@ ActiveRecord::Schema.define(version: 20161101154402) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "clinics", "provinces"
+  add_foreign_key "patients", "clinics"
+  add_foreign_key "patients", "dentists"
+  add_foreign_key "patients", "genders"
+  add_foreign_key "patients", "provinces"
 end

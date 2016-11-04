@@ -28,7 +28,7 @@ class DentistsController < ApplicationController
 
     respond_to do |format|
       if @dentist.save
-        format.html { redirect_to @dentist, notice: 'Dentist was successfully created.' }
+        format.html { redirect_to @dentist, notice: t('create_sucess') }
         format.json { render :show, status: :created, location: @dentist }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DentistsController < ApplicationController
   def update
     respond_to do |format|
       if @dentist.update(dentist_params)
-        format.html { redirect_to @dentist, notice: 'Dentist was successfully updated.' }
+        format.html { redirect_to @dentist, notice: t('update_sucess') }
         format.json { render :show, status: :ok, location: @dentist }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DentistsController < ApplicationController
   def destroy
     @dentist.destroy
     respond_to do |format|
-      format.html { redirect_to dentists_url, notice: 'Dentist was successfully destroyed.' }
+      format.html { redirect_to dentists_url, notice: t('delete_sucess') }
       format.json { head :no_content }
     end
   end

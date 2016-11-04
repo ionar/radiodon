@@ -1,0 +1,30 @@
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')  %> 
+    <%= f.association :dentist, :label => t('dentist'), prompt: t('select') %>
+    <%= f.input :name, :label => t('name') %>
+    <%= f.input :cpf, :label => t('cpf') %>
+    <%= f.input :rg, :label => t('rg') %>
+    <%= f.association :gender, :label => t('gender'), prompt: t('select') %>
+    <%= f.input :birth_date, :label => t('birth_date') %>
+    <%= f.input :email, :label => t('email') %>
+    <%= f.input :address, :label => t('address') %>
+    <%= f.input :cep, :label => t('cep')%>
+    <%= f.input :city, :label => t('city')%>
+    <%= f.association :province, collection: Province.alphabetically, prompt: t('select'), :label => t('province') %>
+    <%= f.input :phone, :label => t('phone') %>
+    <%= f.input :phone2, :label => t('phone') %>
+    <%= f.input :occupation, :label => t('occupation') %>
+    <%= f.input :mothers_name, :label => t('mothers_name') %>
+    <%= f.input :fathers_name, :label => t('fathers_name') %>
+    <%= f.input :notes, :label => t('notes') %>
+  </div>
+
+<div class="actions text-right">
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
+      <% end %>
+  </div>
+<% end %>
