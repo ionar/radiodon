@@ -8,7 +8,8 @@
     <%= f.input :cpf, :label => t('cpf') %>
     <%= f.input :rg, :label => t('rg') %>
     <%= f.association :gender, :label => t('gender'), prompt: t('select') %>
-    <%= f.input :birth_date, :label => t('birth_date') %>
+    <%= f.input :birth_date, :label => t('birth_date'), as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 1, discard_day: false, order: [:day, :month, :year] %>
     <%= f.input :email, :label => t('email') %>
     <%= f.input :address, :label => t('address') %>
     <%= f.input :cep, :label => t('cep')%>

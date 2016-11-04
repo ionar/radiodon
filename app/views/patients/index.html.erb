@@ -1,57 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Patients</h1>
-
-<table>
+<h1><%= t("patients") %></h1>
+<div class="text-right">
+  <%= link_to new_patient_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span> Adicionar
+  <% end %>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Clinic</th>
-      <th>Dentist</th>
-      <th>Name</th>
-      <th>Cpf</th>
-      <th>Rg</th>
-      <th>Gender</th>
-      <th>Birth date</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Cep</th>
-      <th>Phone</th>
-      <th>Phone2</th>
-      <th>Occupation</th>
-      <th>Mothers name</th>
-      <th>Fathers name</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
+      <th><%= t('name') %></th>
+      <th><%= t('clinic') %></th>
+      <th><%= t('gender') %></th>
+      <th><%= t('email') %></th>
+      <th><%= t('phone') %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= patient.clinic %></td>
-        <td><%= patient.dentist %></td>
-        <td><%= patient.name %></td>
-        <td><%= patient.cpf %></td>
-        <td><%= patient.rg %></td>
-        <td><%= patient.gender %></td>
-        <td><%= patient.birth_date %></td>
+        <td><%= link_to patient.name, patient %></td>
+        <td><%= patient.clinic.fantasy_name %></td>
+        <td><%= patient.gender.name %></td>
         <td><%= patient.email %></td>
-        <td><%= patient.address %></td>
-        <td><%= patient.cep %></td>
         <td><%= patient.phone %></td>
-        <td><%= patient.phone2 %></td>
-        <td><%= patient.occupation %></td>
-        <td><%= patient.mothers_name %></td>
-        <td><%= patient.fathers_name %></td>
-        <td><%= patient.notes %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Patient', new_patient_path %>

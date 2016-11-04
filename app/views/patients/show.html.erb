@@ -1,84 +1,95 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= @patient.name %></h1>
+<div class="text-right">
+  <%= link_to patients_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to edit_patient_path(@patient), :class => 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-list-alt"></span> Editar
+  <% end %> 
+  <%= link_to patient_path(@patient), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
 <p>
-  <strong>Clinic:</strong>
-  <%= @patient.clinic %>
+  <strong><%= t('clinic') %>:</strong>
+  <%= @patient.clinic.fantasy_name %>
 </p>
 
 <p>
-  <strong>Dentist:</strong>
-  <%= @patient.dentist %>
+  <strong><%= t('dentist') %>:</strong>
+  <%= @patient.dentist.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('name') %>:</strong>
   <%= @patient.name %>
 </p>
 
 <p>
-  <strong>Cpf:</strong>
+  <strong><%= t('cpf') %>:</strong>
   <%= @patient.cpf %>
 </p>
 
 <p>
-  <strong>Rg:</strong>
+  <strong><%= t('rg') %>:</strong>
   <%= @patient.rg %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
-  <%= @patient.gender %>
+  <strong><%= t('gender') %>:</strong>
+  <%= @patient.gender.name %>
 </p>
 
 <p>
-  <strong>Birth date:</strong>
-  <%= @patient.birth_date %>
+  <strong><%= t('birth_date') %>:</strong>
+  <%=l @patient.birth_date, format: :long %>
+</p>
+<p>
+  <strong><%= t('age') %>:</strong>
+  <%= time_ago_in_words(@patient.birth_date) %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= t('email') %>:</strong>
   <%= @patient.email %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong><%= t('address') %>:</strong>
   <%= @patient.address %>
 </p>
 
 <p>
-  <strong>Cep:</strong>
+  <strong><%= t('cep') %>:</strong>
   <%= @patient.cep %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t('phone') %>:</strong>
   <%= @patient.phone %>
 </p>
 
 <p>
-  <strong>Phone2:</strong>
+  <strong><%= t('phone') %> 2:</strong>
   <%= @patient.phone2 %>
 </p>
 
 <p>
-  <strong>Occupation:</strong>
+  <strong><%= t('occupation') %>:</strong>
   <%= @patient.occupation %>
 </p>
 
 <p>
-  <strong>Mothers name:</strong>
+  <strong><%= t('mothers_name') %>:</strong>
   <%= @patient.mothers_name %>
 </p>
 
 <p>
-  <strong>Fathers name:</strong>
+  <strong><%= t('fathers_name') %>:</strong>
   <%= @patient.fathers_name %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= t('notes') %>:</strong>
   <%= @patient.notes %>
 </p>
-
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>

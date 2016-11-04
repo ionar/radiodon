@@ -1,0 +1,27 @@
+<h1><%= t("exams") %></h1>
+<div class="text-right">
+  <%= link_to new_exam_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span> Adicionar
+  <% end %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('name') %></th>
+      <th><%= t('price') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td><%= link_to exam.name, exam %></td>
+        <td><%= number_to_currency(exam.price) %></td>
+        <td><%= link_to 'Show', exam %></td>
+        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
+        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
