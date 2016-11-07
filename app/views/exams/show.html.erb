@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @exam.name %></h1>
+<div class="text-right">
+  <%= link_to exams_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to edit_exam_path(@exam), :class => 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-list-alt"></span> Editar
+  <% end %> 
+  <%= link_to exam_path(@exam), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t("name") %>:</strong>
   <%= @exam.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @exam.price %>
+  <strong><%= t("price") %>:</strong>
+  <%= number_to_currency(@exam.price) %>
 </p>
-
-<%= link_to 'Edit', edit_exam_path(@exam) %> |
-<%= link_to 'Back', exams_path %>

@@ -9,7 +9,6 @@
     <tr>
       <th><%= t('name') %></th>
       <th><%= t('price') %></th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -18,9 +17,6 @@
       <tr>
         <td><%= link_to exam.name, exam %></td>
         <td><%= number_to_currency(exam.price) %></td>
-        <td><%= link_to 'Show', exam %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

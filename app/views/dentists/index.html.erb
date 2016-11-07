@@ -18,7 +18,7 @@
     <% @dentists.each do |dentist| %>
       <tr>
         <td><%= link_to dentist.name, dentist %></td>
-        <td><%= dentist.register %></td>
+        <td><%= h(dentist.register) %></td>
         <td><%= dentist.email %></td>
         <td><%= dentist.phone %></td>
       </tr>

@@ -34,7 +34,7 @@ class ClinicsController < ApplicationController
 
     respond_to do |format|
       if @clinic.save
-        format.html { redirect_to @clinic, notice: t('create_sucess') }
+        format.html { redirect_to @clinic, notice: t('create_success') }
         format.json { render :show, status: :created, location: @clinic }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class ClinicsController < ApplicationController
     @provinces = Province.alphabetically
     respond_to do |format|
       if @clinic.update(clinic_params)
-        format.html { redirect_to @clinic, notice: t('update_sucess') }
+        format.html { redirect_to @clinic, notice: t('update_success') }
         format.json { render :show, status: :ok, location: @clinic }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class ClinicsController < ApplicationController
   def destroy
     @clinic.destroy
     respond_to do |format|
-      format.html { redirect_to clinics_url, notice: t('delete_sucess') }
+      format.html { redirect_to clinics_url, notice: t('destroy_success') }
       format.json { head :no_content }
     end
   end
