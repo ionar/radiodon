@@ -1,0 +1,71 @@
+<h1><%= @attend.patient.name %> - <%=l @attend.schedule, format: :long %></h1>
+<div class="text-right">
+  <%= link_to attends_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to edit_attend_path(@attend), :class => 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-list-alt"></span> Editar
+  <% end %> 
+  <%= link_to attend_path(@attend), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
+
+<p>
+  <strong><%= t('clinic') %>:</strong>
+  <%= @attend.clinic.fantasy_name %>
+</p>
+
+<p>
+  <strong><%= t('patient') %>:</strong>
+  <%= @attend.patient.name %>
+</p>
+
+<p>
+  <strong><%= t('schedule') %>:</strong>
+  <%=l @attend.schedule, format: :long %>
+</p>
+
+<p>
+  <strong><%= t('exams') %>:</strong>
+  <ul>
+  <% @attend.exam.each do |exame| %>
+    <li><%= exame.name %></li>
+  <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong><%= t('dentist') %>:</strong>
+  <%= @attend.dentist.name %>
+</p>
+
+<p>
+  <strong><%= t('notes') %>:</strong>
+  <%= @attend.notes %>
+</p>
+
+<p>
+  <strong><%= t('discount') %>:</strong>
+  <%= @attend.discount %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @attend.total %>
+</p>
+
+<p>
+  <strong><%= t('payment_detail') %>:</strong>
+  <%= @attend.payment_detail %>
+</p>
+
+<p>
+  <strong><%= t('finalized') %>:</strong>
+  <%= human_boolean(@attend.finalized) %>
+</p>
+
+<p>
+  <strong><%= t('missed') %>:</strong>
+  <%= human_boolean(@attend.missed) %>
+</p>

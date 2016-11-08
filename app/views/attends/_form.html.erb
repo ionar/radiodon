@@ -1,0 +1,22 @@
+<%= simple_form_for(@attend) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')  %> 
+    <%= f.association :patient, :label => t('patient'), prompt: t('select') %>
+    <%= f.input :schedule, :label => t('schedule'),:as => :datetime_picker %>
+    <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
+    <%= f.association :dentist, :label => t('dentist'), prompt: t('select') %>
+    <%= f.input :notes, :label => t('notes') %>
+    <%= f.input :discount, :label => t('discount') %>
+    <%= f.input :total %>
+    <%= f.input :payment_detail, :label => t('payment_detail') %>
+    <%= f.input :finalized, :label => t('finalized') %>
+    <%= f.input :missed, :label => t('missed') %>
+  </div>
+<div class="actions text-right">
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
+      <% end %>
+  </div>
+<% end %>

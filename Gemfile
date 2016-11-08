@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+
 gem 'simple_form'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'devise'

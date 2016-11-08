@@ -1,0 +1,30 @@
+<h1><%= t("attends") %></h1>
+<div class="text-right">
+  <%= link_to new_attend_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span> Adicionar
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('patient') %></th>
+      <th><%= t('clinic') %></th>
+      <th><%= t('schedule') %></th>
+      <th>Finalized</th>
+      <th>Missed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attends.each do |attend| %>
+      <tr>
+        <td><%= link_to attend.patient.name, attend %></td>
+        <td><%= attend.clinic.fantasy_name %></td>
+        <td><%=l attend.schedule, format: :long %></td>
+        <td><%= attend.finalized %></td>
+        <td><%= attend.missed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

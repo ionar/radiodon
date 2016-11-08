@@ -22,4 +22,8 @@ module ApplicationHelper
 			""
 		end
 	end
+
+	def human_boolean(boolean)
+    boolean ? t('sim') : t('não')
+end
 end

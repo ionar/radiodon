@@ -1,3 +1,10 @@
 <h1>Editar <%= t("exam") %></h1>
-
+<div class="text-right">
+  <%= link_to exams_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+  <% end %> 
+  <%= link_to exam_path(@exam), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+    <span class="glyphicon glyphicon-remove"></span> Apagar
+  <% end %> 
+</div>
 <%= render 'form' %>

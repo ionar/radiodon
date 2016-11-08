@@ -1,10 +1,26 @@
 GIT
+  remote: git://github.com/derekprior/momentjs-rails.git
+  revision: fa8ac4899554775945704fd6b7a7b3c5ce1bde17
+  specs:
+    momentjs-rails (2.15.1)
+      railties (>= 3.1)
+
+GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
   revision: 5d6b2ebba0c2a5885ce2f0e01e9218db3d3b5e47
   specs:
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 36d21cec5da7f5b214925804f60e63c61c747023
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.16)
+      momentjs-rails (>= 2.9.0)
 
 GEM
   remote: https://rubygems.org/
@@ -191,9 +207,11 @@ DEPENDENCIES
   bootstrap-sass!
   byebug
   coffee-rails (~> 4.1.0)
+  datetimepicker-rails!
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails (~> 2.9)!
   mysql2 (~> 0.3.18)
   rails (= 4.2.4)
   rails_real_favicon

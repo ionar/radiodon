@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clinic_id: 
+  patient_id: 
+  schedule: 2016-11-07 11:00:38
+  exam_id: 
+  dentist_id: 
+  notes: MyText
+  discount: 1.5
+  total: 1.5
+  payment_detail: MyString
+  finalized: false
+  missed: false
+
+two:
+  clinic_id: 
+  patient_id: 
+  schedule: 2016-11-07 11:00:38
+  exam_id: 
+  dentist_id: 
+  notes: MyText
+  discount: 1.5
+  total: 1.5
+  payment_detail: MyString
+  finalized: false
+  missed: false

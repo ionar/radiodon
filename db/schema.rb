@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104182924) do
+ActiveRecord::Schema.define(version: 20161107152643) do
+
+  create_table "attends", force: :cascade do |t|
+    t.integer  "clinic_id",      limit: 4
+    t.integer  "patient_id",     limit: 4
+    t.datetime "schedule"
+    t.integer  "exam_id",        limit: 4
+    t.integer  "dentist_id",     limit: 4
+    t.text     "notes",          limit: 65535
+    t.float    "discount",       limit: 24
+    t.float    "total",          limit: 24
+    t.string   "payment_detail", limit: 255
+    t.boolean  "finalized"
+    t.boolean  "missed"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "attends", ["clinic_id"], name: "index_attends_on_clinic_id", using: :btree
+  add_index "attends", ["dentist_id"], name: "index_attends_on_dentist_id", using: :btree
+  add_index "attends", ["exam_id"], name: "index_attends_on_exam_id", using: :btree
+  add_index "attends", ["patient_id"], name: "index_attends_on_patient_id", using: :btree
+
+  create_table "attends_exams", id: false, force: :cascade do |t|
+    t.integer "attend_id", limit: 4
+    t.integer "exam_id",   limit: 4
+  end
 
   create_table "clinics", force: :cascade do |t|
     t.string   "fantasy_name",      limit: 255
@@ -105,6 +131,10 @@ ActiveRecord::Schema.define(version: 20161104182924) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "attends", "clinics"
+  add_foreign_key "attends", "dentists"
+  add_foreign_key "attends", "exams"
+  add_foreign_key "attends", "patients"
   add_foreign_key "clinics", "provinces"
   add_foreign_key "patients", "clinics"
   add_foreign_key "patients", "dentists"
