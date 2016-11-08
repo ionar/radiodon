@@ -5,6 +5,6 @@ class Attend < ActiveRecord::Base
   has_and_belongs_to_many :exam
 
   validates :schedule, uniqueness: true
-  validates :clinic_id, :patient_id, :schedule, :payment_detail, presence: true
+  validates :clinic_id, :patient_id, :dentist_id, :schedule, :payment_detail, presence: true
 
 end

@@ -14,3 +14,7 @@
   <dt>Time</dt>
   <dd><%= distance_of_time_in_words(1.hour + 20.minutes) %></dd>
 </dl>
+
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>

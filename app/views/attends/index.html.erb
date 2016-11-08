@@ -11,8 +11,8 @@
       <th><%= t('patient') %></th>
       <th><%= t('clinic') %></th>
       <th><%= t('schedule') %></th>
-      <th>Finalized</th>
-      <th>Missed</th>
+      <th><%= t('finalized') %></th>
+      <th><%= t('missed') %></th>
     </tr>
   </thead>
 
@@ -21,9 +21,15 @@
       <tr>
         <td><%= link_to attend.patient.name, attend %></td>
         <td><%= attend.clinic.fantasy_name %></td>
-        <td><%=l attend.schedule, format: :long %></td>
-        <td><%= attend.finalized %></td>
-        <td><%= attend.missed %></td>
+        <td><%=l attend.schedule, format: :short %></td>
+        <td><% if attend.finalized == true %>
+        <span class="glyphicon glyphicon-ok alert-success"> </span>
+        <% end %>
+         </td>
+        <td><% if attend.missed == true %>
+        <span class="glyphicon glyphicon-asterisk alert-danger"> </span>
+        <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>
