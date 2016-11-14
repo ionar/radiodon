@@ -5,6 +5,11 @@ class Attend < ActiveRecord::Base
   has_and_belongs_to_many :exam
 
   validates :schedule, uniqueness: true
-  validates :clinic_id, :patient_id, :dentist_id, :schedule, :payment_detail, presence: true
+  validates :clinic_id, :patient_id, :dentist_id, :schedule, presence: true
+
+  # simple_calendar find column "start_time". Here set a nickname
+  def start_time
+        self.schedule
+    end
 
 end

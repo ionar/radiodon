@@ -15,6 +15,43 @@
   <dd><%= distance_of_time_in_words(1.hour + 20.minutes) %></dd>
 </dl>
 
-<%= month_calendar do |date| %>
-  <%= date %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('patient') %></th>
+      <th><%= t('clinic') %></th>
+      <th><%= t('schedule') %></th>
+      <th><%= t('finalized') %></th>
+      <th><%= t('missed') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attends.each do |attend| %>
+      <tr>
+        <td><%= link_to attend.patient.name, attend %></td>
+        <td><%= attend.clinic.fantasy_name %></td>
+        <td><%=l attend.schedule, format: :short %></td>
+        <td><% if attend.finalized == true %>
+        <span class="glyphicon glyphicon-ok alert-success"> </span>
+        <% end %>
+         </td>
+        <td><% if attend.missed == true %>
+        <span class="glyphicon glyphicon-asterisk alert-danger"> </span>
+        <% end %>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= month_calendar events: @attends do |date, attends| %>
+  <%= date.day %>
+
+  <% attends.each do |attend| %>
+    <div>
+      <%= attend.patient.name %>
+    </div>
+  <% end %>
 <% end %>

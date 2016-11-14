@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107152643) do
+ActiveRecord::Schema.define(version: 20161114121410) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",      limit: 4
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20161107152643) do
     t.integer  "exam_id",        limit: 4
     t.integer  "dentist_id",     limit: 4
     t.text     "notes",          limit: 65535
-    t.float    "discount",       limit: 24
-    t.float    "total",          limit: 24
     t.string   "payment_detail", limit: 255
     t.boolean  "finalized"
     t.boolean  "missed"
@@ -67,7 +65,6 @@ ActiveRecord::Schema.define(version: 20161107152643) do
 
   create_table "exams", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.float    "price",      limit: 24
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -80,7 +77,6 @@ ActiveRecord::Schema.define(version: 20161107152643) do
 
   create_table "patients", force: :cascade do |t|
     t.integer  "clinic_id",    limit: 4
-    t.integer  "dentist_id",   limit: 4
     t.string   "name",         limit: 255
     t.string   "cpf",          limit: 255
     t.string   "rg",           limit: 255
@@ -102,7 +98,6 @@ ActiveRecord::Schema.define(version: 20161107152643) do
   end
 
   add_index "patients", ["clinic_id"], name: "index_patients_on_clinic_id", using: :btree
-  add_index "patients", ["dentist_id"], name: "index_patients_on_dentist_id", using: :btree
   add_index "patients", ["gender_id"], name: "index_patients_on_gender_id", using: :btree
   add_index "patients", ["province_id"], name: "index_patients_on_province_id", using: :btree
 
@@ -137,7 +132,6 @@ ActiveRecord::Schema.define(version: 20161107152643) do
   add_foreign_key "attends", "patients"
   add_foreign_key "clinics", "provinces"
   add_foreign_key "patients", "clinics"
-  add_foreign_key "patients", "dentists"
   add_foreign_key "patients", "genders"
   add_foreign_key "patients", "provinces"
 end

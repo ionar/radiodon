@@ -16,7 +16,6 @@
     <% @exams.each do |exam| %>
       <tr>
         <td><%= link_to exam.name, exam %></td>
-        <td><%= number_to_currency(exam.price) %></td>
       </tr>
     <% end %>
   </tbody>
