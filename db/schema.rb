@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114121410) do
+ActiveRecord::Schema.define(version: 20161114165923) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",      limit: 4
@@ -121,8 +121,10 @@ ActiveRecord::Schema.define(version: 20161114121410) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.integer  "clinic_id",              limit: 4
   end
 
+  add_index "users", ["clinic_id"], name: "index_users_on_clinic_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -134,4 +136,5 @@ ActiveRecord::Schema.define(version: 20161114121410) do
   add_foreign_key "patients", "clinics"
   add_foreign_key "patients", "genders"
   add_foreign_key "patients", "provinces"
+  add_foreign_key "users", "clinics"
 end

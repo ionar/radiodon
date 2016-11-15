@@ -4,7 +4,11 @@ class AttendsController < ApplicationController
   # GET /attends
   # GET /attends.json
   def index
-    @attends = Attend.all
+    #@attends = Attend.all
+    @attends = Attend.where("clinic_id = ?", current_user.clinic_id)
+
+    #filtro, usa scope no model - desativado por enquanto
+    #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
   end
 
   # GET /attends/1

@@ -6,30 +6,30 @@ class ClinicsController < ApplicationController
   # GET /clinics.json
   def index
     @clinics = Clinic.all
-    @provinces = Province.alphabetically
+    
   end
 
   # GET /clinics/1
   # GET /clinics/1.json
   def show
-    @provinces = Province.alphabetically
+    
   end
 
   # GET /clinics/new
   def new
     @clinic = Clinic.new
-    @provinces = Province.alphabetically
+    
   end
 
   # GET /clinics/1/edit
   def edit
-        @provinces = Province.alphabetically
+        
   end
 
   # POST /clinics
   # POST /clinics.json
   def create
-    @provinces = Province.alphabetically
+    
     @clinic = Clinic.new(clinic_params)
 
     respond_to do |format|
@@ -46,7 +46,7 @@ class ClinicsController < ApplicationController
   # PATCH/PUT /clinics/1
   # PATCH/PUT /clinics/1.json
   def update
-    @provinces = Province.alphabetically
+    
     respond_to do |format|
       if @clinic.update(clinic_params)
         format.html { redirect_to @clinic, notice: t('update_success') }

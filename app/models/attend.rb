@@ -10,6 +10,7 @@ class Attend < ActiveRecord::Base
   # simple_calendar find column "start_time". Here set a nickname
   def start_time
         self.schedule
-    end
+  end
 
+    scope :clinic, -> (clinic_id) { where clinic_id: clinic_id }
 end

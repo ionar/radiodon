@@ -28,7 +28,7 @@
       <%= f.input :address, :label => t('address') %>
       <%= f.input :cep, :label => t('cep')%>
       <%= f.input :city, :label => t('city')%>
-      <%= f.association :province, collection: Province.alphabetically, prompt: t('select'), :label => t('province') %>
+      <%= f.association :province, collection: Province.all, prompt: t('select'), :label => t('province') %>
       <%= f.input :occupation, :label => t('occupation') %>
       <%= f.input :mothers_name, :label => t('mothers_name') %>
       <%= f.input :fathers_name, :label => t('fathers_name') %>

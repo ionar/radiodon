@@ -1,9 +1,17 @@
 <h1>Welcome#index</h1>
+<hr>
+<%= current_user.clinic.fantasy_name %>
+<hr>
+
+<hr>
 <h3><%= t('hello') %></h3>
 <p>Find me in app/views/welcome/index.html.erb</p>
 <dl>
   <dt>Number to Currency</dt>
   <dd><%= number_to_currency(123.56) %></dd>
+
+    <dt>Number to Currency personalized in helper</dt>
+  <dd><%= my_formatted_number(123.56) %></dd>
 
   <dt>Number to Human</dt>
   <dd><%= number_to_human(100_555_123.15) %></dd>
@@ -51,7 +59,8 @@
 
   <% attends.each do |attend| %>
     <div>
-      <%= attend.patient.name %>
+      <%= attend.patient.name %> <br>
+      <%= attend.clinic.fantasy_name %>
     </div>
   <% end %>
 <% end %>

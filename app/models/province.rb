@@ -4,6 +4,8 @@ class Province < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
 	validates :acronym, presence: true, uniqueness: true
 
+	#substituido pelo default_scope
+	#scope :alphabetically, -> { order("name ASC") }
 
-	scope :alphabetically, -> { order("name ASC") }
+	default_scope -> { order("name ASC") }
 end

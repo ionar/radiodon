@@ -45,5 +45,6 @@ pt-BR:
   payment_detail: "Forma de pagamento"
   finalized: "Finalizado"
   missed: "Faltou"
-  yes: "Sim"
-  no: "Não"
+  sign_up: "Registrar-se"
+  login: "Entrar"
+  Forgot your password?: "Perdeu sua senha?"

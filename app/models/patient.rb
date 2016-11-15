@@ -6,5 +6,5 @@ class Patient < ActiveRecord::Base
   has_many :attends
 
   validates :name, :cpf, :rg, :email, uniqueness: true
-  validates :clinic, :dentist, :name, :cpf, :rg, :gender, :birth_date, :email, :phone, :address, :cep, :city, :province, presence: true
+  validates :clinic, :name, :phone, presence: true
 end
