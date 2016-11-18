@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: radiodontica3_production
-  username: radiodontica3
+  username: root
   password: <%= ENV['RADIODONTICA3_DATABASE_PASSWORD'] %>
