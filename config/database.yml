@@ -51,4 +51,5 @@ production:
   <<: *default
   database: radiodontica3_production
   username: root
+  host: <%= ENV['RADIODONTICA3_DATABASE_HOST'] %>
   password: <%= ENV['RADIODONTICA3_DATABASE_PASSWORD'] %>
