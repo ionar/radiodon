@@ -1,8 +1,9 @@
 <div class="row">
   <div class="col-lg-6">
     <%= month_calendar events: @attends do |date, attends| %>
-      <div style="width: 100%; height:100%"> 
+      <div style="width: 100%; height:100%;"> 
         <%= date.day %> <br>
+        <%= link_to "link", welcome_index_path(:data => date.strftime("%d-%m-%Y")), remote: true %>
 
 <% if false %>
         <% attends.each do |attend| %>
@@ -19,7 +20,7 @@
     <% end %>
   </div><!-- /col -->
     <div class="col-lg-6">
-   Teste
+   Teste <%= @datasel %>
   </div><!-- /col -->
 </div><!-- /row -->
 
@@ -43,6 +44,9 @@
 
   <dt>Date</dt>
   <dd><%=l Time.current, format: :long %></dd>
+
+  <dt>Date normal</dt>
+  <dd><%= Date.current.strftime("%d/%m/%Y") %></dd>  
 
   <dt>Time</dt>
   <dd><%= distance_of_time_in_words(1.hour + 20.minutes) %></dd>

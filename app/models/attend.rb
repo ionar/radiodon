@@ -12,5 +12,5 @@ class Attend < ActiveRecord::Base
         self.schedule
   end
 
-    scope :clinic, -> (clinic_id) { where clinic_id: clinic_id }
+    #scope :clinic, -> (clinic_id) { where clinic_id: clinic_id }
 end
