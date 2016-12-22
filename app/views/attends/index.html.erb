@@ -4,6 +4,19 @@
     <span class="glyphicon glyphicon-plus"></span> Adicionar
   <% end %>
 </div>
+<hr>
+
+<div class="row">
+  <div class="col-lg-6">
+    <%= render partial: "calendar", locals: {attends: @attends} %>
+  </div><!-- /col -->
+    <div class="col-lg-6">
+    <%= render partial: "listagem", locals: {attends: @attends} %>
+  </div><!-- /col -->
+</div><!-- /row -->
+<div class="row">
+
+
 
 <table class="table table-striped">
   <thead>
@@ -34,3 +47,4 @@
     <% end %>
   </tbody>
 </table>
+</div><!-- /row -->

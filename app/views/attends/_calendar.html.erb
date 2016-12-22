@@ -1,0 +1,10 @@
+<div id="events_calendar">
+      <%= month_calendar events: @attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attends| %>
+          <%= date.day %> <br>
+          <%= link_to "link", attends_path(:data => date.strftime("%d-%m-%Y")), remote: true %>
+
+          <% if attends.length != 0 %>
+          <span class="badge alert-info"><%= attends.length %></span>
+          <% end %>
+      <% end %>
+    </div><!-- /events_calendar -->
