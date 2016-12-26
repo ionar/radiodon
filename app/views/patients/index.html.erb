@@ -18,7 +18,7 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><%= link_to patient.name, patient %></td>
-        <td><%= patient.gender.name %></td>
+        <td><%= patient.gender %></td>
         <td><%= patient.email %></td>
         <td><%= patient.phone %></td>
       </tr>

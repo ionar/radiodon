@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226132526) do
+ActiveRecord::Schema.define(version: 20161226162459) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",      limit: 4
@@ -126,10 +126,9 @@ ActiveRecord::Schema.define(version: 20161226132526) do
     t.datetime "updated_at",                 null: false
     t.string   "city",         limit: 255
     t.integer  "province_id",  limit: 4
-    t.integer  "gender_id",    limit: 4
+    t.string   "gender",       limit: 255
   end
 
-  add_index "patients", ["gender_id"], name: "index_patients_on_gender_id", using: :btree
   add_index "patients", ["province_id"], name: "index_patients_on_province_id", using: :btree
 
   create_table "provinces", force: :cascade do |t|
@@ -164,7 +163,6 @@ ActiveRecord::Schema.define(version: 20161226132526) do
   add_foreign_key "attends", "exams"
   add_foreign_key "attends", "patients"
   add_foreign_key "clinics", "provinces"
-  add_foreign_key "patients", "genders"
   add_foreign_key "patients", "provinces"
   add_foreign_key "users", "clinics"
 end

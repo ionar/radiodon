@@ -14,7 +14,7 @@
       <div class="tab-pane fade in active" id="obrigatorio">
       <% comment = "f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')"  %> 
       <%= f.input :name, :label => t('name') %>
-      <%= f.association :gender, :label => t('gender'), prompt: t('select') %>
+      <%= f.input :gender, :collection => [['M','M'],['F','F']], prompt: t('select'), :label => t('gender') %>
       <%= f.input :phone, :label => t('phone') %>
       <%= f.input :phone2, :label => t('phone') %>
       <%= f.input :cpf, :label => t('cpf') %>

@@ -1,5 +1,5 @@
 class AddGenderToPatient < ActiveRecord::Migration
   def change
-    add_reference :patients, :gender, index: true, foreign_key: true
+    add_column :patients, :gender, :string
   end
 end
