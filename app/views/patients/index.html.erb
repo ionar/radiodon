@@ -8,7 +8,6 @@
   <thead>
     <tr>
       <th><%= t('name') %></th>
-      <th><%= t('clinic') %></th>
       <th><%= t('gender') %></th>
       <th><%= t('email') %></th>
       <th><%= t('phone') %></th>
@@ -19,7 +18,6 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><%= link_to patient.name, patient %></td>
-        <td><%= patient.clinic.fantasy_name %></td>
         <td><%= patient.gender.name %></td>
         <td><%= patient.email %></td>
         <td><%= patient.phone %></td>
