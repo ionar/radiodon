@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226162459) do
+ActiveRecord::Schema.define(version: 20161227120558) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",      limit: 4
@@ -53,39 +53,6 @@ ActiveRecord::Schema.define(version: 20161226162459) do
 
   add_index "clinics", ["province_id"], name: "index_clinics_on_province_id", using: :btree
 
-  create_table "colaborador", force: :cascade do |t|
-    t.string  "filial",     limit: 1,     null: false
-    t.string  "cpfcnpj",    limit: 14,    null: false
-    t.string  "rgie",       limit: 15
-    t.string  "nome",       limit: 40,    null: false
-    t.string  "sexo",       limit: 1,     null: false
-    t.date    "nascimento"
-    t.string  "email",      limit: 40
-    t.string  "endlograd",  limit: 40
-    t.string  "endnumero",  limit: 6
-    t.string  "endbairro",  limit: 30
-    t.integer "endcep",     limit: 4,     null: false
-    t.string  "endcidade",  limit: 30,    null: false
-    t.string  "enduf",      limit: 2,     null: false
-    t.integer "fonecelddd", limit: 4
-    t.integer "fonecelnum", limit: 4
-    t.integer "fonecomddd", limit: 4
-    t.integer "fonecomnum", limit: 4
-    t.integer "fonecomram", limit: 4
-    t.integer "foneresddd", limit: 4
-    t.integer "foneresnum", limit: 4
-    t.integer "foneresram", limit: 4
-    t.integer "fonerecddd", limit: 4
-    t.integer "fonerecnum", limit: 4
-    t.integer "fonerecram", limit: 4
-    t.string  "categoria",  limit: 1
-    t.string  "secretaria", limit: 30
-    t.text    "anotacoes",  limit: 65535
-    t.date    "cadastro"
-  end
-
-  add_index "colaborador", ["cpfcnpj"], name: "colaborador_cpfcnpj", using: :btree
-
   create_table "dentists", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "register",   limit: 255
@@ -110,6 +77,7 @@ ActiveRecord::Schema.define(version: 20161226162459) do
 
   create_table "patients", force: :cascade do |t|
     t.string   "name",         limit: 255
+    t.string   "gender",       limit: 255
     t.string   "cpf",          limit: 255
     t.string   "rg",           limit: 255
     t.date     "birth_date"
@@ -126,7 +94,7 @@ ActiveRecord::Schema.define(version: 20161226162459) do
     t.datetime "updated_at",                 null: false
     t.string   "city",         limit: 255
     t.integer  "province_id",  limit: 4
-    t.string   "gender",       limit: 255
+    t.string   "filial",       limit: 255
   end
 
   add_index "patients", ["province_id"], name: "index_patients_on_province_id", using: :btree
