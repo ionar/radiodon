@@ -4,8 +4,9 @@
   <div class="form-inputs">
     <%= f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')  %> 
     
-    <%= f.input :patient, :label => t('patient') %>
-    <%= f.input :schedule, :label => t('schedule'),:as => :datetime_picker %>
+    <%= f.input :patient_id, :label => t('patient') %>
+    <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
+    <%= f.input :appointment, :label => t('appointment'),:as => :time_picker %>
     <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
     <%= f.association :dentist, :label => t('dentist'), prompt: t('select') %>
     <%= f.input :payment_detail, :label => t('payment_detail') %>

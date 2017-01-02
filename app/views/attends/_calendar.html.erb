@@ -1,10 +1,16 @@
 <div id="events_calendar">
-      <%= month_calendar events: @attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attends| %>
-          <%= date.day %> <br>
-          <%= link_to "link", attends_path(:data => date.strftime("%d-%m-%Y")), remote: true %>
+      <%= month_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
 
-          <% if attends.length != 0 %>
-          <span class="badge alert-info"><%= attends.length %></span>
-          <% end %>
+      <p class="text-center"><strong>
+      	<%= link_to fetch_data_path(:data => date.strftime("%d-%m-%Y")), :remote => true, :class => 'link_calendar' do %>
+          <%= date.day %> </strong></p>
+        <% end %>
+          
+          	<% if attend.length != 0 %>
+          	<span class="badge alert-danger"><%= attend.length %></span>
+          	<% end %>
+
       <% end %>
     </div><!-- /events_calendar -->
+
+    <% comentario = 'link_to "link", attends_path(:data => date.strftime("%d-%m-%Y")), remote: true' %>

@@ -1,5 +1,9 @@
 module AttendsHelper
 	#Just experiments
+  def data_selecionada
+   render :text => params[:data]
+  end
+
 	def myclinic
     	render :text => current_user.clinic.fantasy_name
   	end

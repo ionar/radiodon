@@ -4,6 +4,7 @@
     <span class="glyphicon glyphicon-plus"></span> Adicionar
   <% end %>
 </div>
+<%= paginate @patients, window: 2  %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -25,8 +26,6 @@
         <td><%= patient.phone %></td>
       </tr>
     <% end %>
-    <%= paginate @patients, window: 2  %>
-
   </tbody>
 </table>
 

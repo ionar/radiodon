@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227120558) do
+ActiveRecord::Schema.define(version: 20170102162904) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",      limit: 4
     t.integer  "patient_id",     limit: 4
-    t.datetime "schedule"
+    t.time     "appointment"
+    t.date     "schedule"
     t.integer  "exam_id",        limit: 4
     t.integer  "dentist_id",     limit: 4
     t.text     "notes",          limit: 65535
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20161227120558) do
   end
 
   create_table "patients", force: :cascade do |t|
+    t.string   "filial",       limit: 255
     t.string   "name",         limit: 255
     t.string   "gender",       limit: 255
     t.string   "cpf",          limit: 255
@@ -90,14 +92,20 @@ ActiveRecord::Schema.define(version: 20161227120558) do
     t.string   "mothers_name", limit: 255
     t.string   "fathers_name", limit: 255
     t.text     "notes",        limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
     t.string   "city",         limit: 255
     t.integer  "province_id",  limit: 4
-    t.string   "filial",       limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "patients", ["province_id"], name: "index_patients_on_province_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.decimal  "price",                  precision: 12, scale: 2
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
 
   create_table "provinces", force: :cascade do |t|
     t.string   "name",       limit: 255

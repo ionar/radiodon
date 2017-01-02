@@ -1,5 +1,12 @@
 class AttendsController < ApplicationController
-  before_action :set_attend, only: [:show, :edit, :update, :destroy]
+  before_action :set_attend, only: [:show, :edit, :update, :destroy, :from_data]
+
+  def from_data
+    @selected = Attend.where(:schedule => params[:data])
+    respond_to do |format|
+        format.js
+    end
+  end
 
   # GET /attends
   # GET /attends.json
@@ -10,7 +17,8 @@ class AttendsController < ApplicationController
     #filtro, usa scope no model - desativado por enquanto
     #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
 
-    @datasel = params[:data]
+    #mudei esse cara para um helper
+    #@datasel = params[:data]
   end
 
   # GET /attends/1
