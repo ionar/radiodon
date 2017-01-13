@@ -1,0 +1,2 @@
+//$("#lista-horarios").html("<%= escape_javascript(render partial: 'listagem', locals: { thisday: @dia_selecionado } ) %>");
+$("#lista-horarios").html("<%= escape_javascript render(partial: "listagem", locals: {attends: @attends}) %>");

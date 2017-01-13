@@ -1,10 +1,15 @@
 module AttendsHelper
 	#Just experiments
-  def data_selecionada
-   render :text => params[:data]
+  def dia_selected
+    if params[:dia].present?
+      return Date.parse(params[:dia])
+    else
+      return Date.current
+    end
   end
 
-	def myclinic
+
+	 def myclinic
     	render :text => current_user.clinic.fantasy_name
   	end
 
@@ -17,10 +22,10 @@ module AttendsHelper
   	end
 
     def events_ajax_previous_link
-      ->(param, date_range) { link_to raw("&laquo;"), {param => date_range.first - 1.day}, remote: :true}
+      ->(param, date_range) { link_to raw("&laquo;"), {param => date_range.first - 1.day}, :remote => true}
     end
 
     def events_ajax_next_link
-      ->(param, date_range) { link_to raw("&raquo;"), {param => date_range.last + 1.day}, remote: :true}
+      ->(param, date_range) { link_to raw("&raquo;"), {param => date_range.last + 1.day}, :remote => true}
     end
 end

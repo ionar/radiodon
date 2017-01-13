@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   resources :clinics
   get 'welcome/index'
 
-  #get "/fetch_items" => 'items#from_category', as: 'fetch_items'
-  get "/fetch_data" => 'attends#from_data', as: 'fetch_data'
+  get "/qual_dia" => 'attends#diasel', as: 'qual_dia'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

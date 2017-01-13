@@ -1,10 +1,18 @@
 class AttendsController < ApplicationController
-  before_action :set_attend, only: [:show, :edit, :update, :destroy, :from_data]
+  before_action :set_attend, only: [:show, :edit, :update, :destroy]
 
-  def from_data
-    @selected = Attend.where(:schedule => params[:data])
+  def diasel
+    #render text: "Action diasel"
+    @attends = Attend.where(nil)
+    #@attends = Attend.where("clinic_id = ?", current_user.clinic_id)
+    #@attends = @attends.para_o_dia(params[:dia]) if params[:dia].present?
+    if params[:dia].present?
+      @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(params[:dia])
+     else
+      @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
+    end
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 
@@ -12,13 +20,14 @@ class AttendsController < ApplicationController
   # GET /attends.json
   def index
     #@attends = Attend.all
-    @attends = Attend.where("clinic_id = ?", current_user.clinic_id)
-
+    ##@attends = Attend.where("clinic_id = ?", current_user.clinic_id)
+    @attends = Attend.where(nil)
+    @attends = @attends.para_a_clinica(current_user.clinic_id)
+    @attends_current = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
     #filtro, usa scope no model - desativado por enquanto
     #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
 
-    #mudei esse cara para um helper
-    #@datasel = params[:data]
+    #@dia_selecionado = params[:dia]
   end
 
   # GET /attends/1
@@ -83,6 +92,6 @@ class AttendsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attend_params
-      params.require(:attend).permit(:clinic_id, :patient_id, :schedule, :dentist_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
+      params.require(:attend).permit(:clinic_id, :patient_id, :schedule, :appointment, :dentist_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
     end
 end

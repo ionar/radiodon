@@ -25,6 +25,11 @@
   <strong><%= t('schedule') %>:</strong>
   <%=l @attend.schedule, format: :long %>
 </p>
+<p>
+  <strong><%= t('appointment') %>:</strong>
+  <%= @attend.appointment.strftime("%H:%M") %>
+</p>
+
 
 <p>
   <strong><%= t('exams') %>:</strong>

@@ -1,10 +1,6 @@
-<div id="listagem">
-      Teste <%= data_selecionada %>
-
-<div>
-  <div id="lista-datas" >
-
-  </div>
-</div>
-
-   </div><!-- /listagem -->
+<h3><%=l dia_selected, format: :long %></h3>
+<ul>
+<% @attends.each do |attend| %>
+	<li><b><%= attend.appointment.strftime("%H:%M") %></b> - <%= attend.patient.name %> - <%= attend.clinic.fantasy_name %> </li>
+<% end %>
+</ul>

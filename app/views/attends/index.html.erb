@@ -4,47 +4,27 @@
     <span class="glyphicon glyphicon-plus"></span> Adicionar
   <% end %>
 </div>
-<hr>
 
 <div class="row">
-  <div class="col-lg-7">
-    <%= render partial: "calendar", locals: {attends: @attends} %>
+  <div class="col-lg-4">
+      <div id="events_calendar">
+        <%= render partial: "calendar", locals: {attends: @attends} %>
+      </div><!-- /events_calendar -->
   </div><!-- /col -->
-  <div class="col-lg-5">
-    <%= render partial: "listagem", locals: {attends: @attends} %>
+  <div class="col-lg-4">
+    <div id="lista-horarios">
+    <%=
+    if params[:dia].present?
+      render partial: "listagem", locals: {attends: @attends} 
+    else 
+      render partial: "listagem_corrente", locals: {attends: @attends} 
+    end
+    %>
+    </div><!-- /lista-horarios -->
   </div><!-- /col -->
-</div><!-- /row -->
-<div class="row">
-
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t('patient') %></th>
-      <th><%= t('clinic') %></th>
-      <th><%= t('schedule') %></th>
-      <th><%= t('finalized') %></th>
-      <th><%= t('missed') %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @attends.each do |attend| %>
-      <tr>
-        <td><%= link_to attend.patient.name, attend %></td>
-        <td><%= attend.clinic.fantasy_name %></td>
-        <td><%=l attend.schedule, format: :short %></td>
-        <td><% if attend.finalized == true %>
-        <span class="glyphicon glyphicon-ok alert-success"> </span>
-        <% end %>
-         </td>
-        <td><% if attend.missed == true %>
-        <span class="glyphicon glyphicon-asterisk alert-danger"> </span>
-        <% end %>
-      </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="col-lg-4">
+    <div id="cadastra-ainda-nao-ta-usando">
+      Cad
+    </div><!-- /cadastra-ainda-nao-ta-usando -->
+  </div><!-- /col -->  
 </div><!-- /row -->
