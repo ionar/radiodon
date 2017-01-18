@@ -1,6 +1,12 @@
 .simple-calendar {
   .day {
-    height: 30px;
+    height: 50px;
+  }
+  .num-attends{
+    font-size: 10px;
+    color: #FF0000;
+    margin:0;
+    padding: 0;
   }
 
   .wday-0 {}

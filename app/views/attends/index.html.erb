@@ -8,23 +8,17 @@
 <div class="row">
   <div class="col-lg-4">
       <div id="events_calendar">
-        <%= render partial: "calendar", locals: {attends: @attends} %>
+        <%= render partial: "calendar", locals: {attends: @attends_todos} %>
       </div><!-- /events_calendar -->
   </div><!-- /col -->
   <div class="col-lg-4">
     <div id="lista-horarios">
-    <%=
-    if params[:dia].present?
-      render partial: "listagem", locals: {attends: @attends} 
-    else 
-      render partial: "listagem_corrente", locals: {attends: @attends} 
-    end
-    %>
+    <%= render partial: "listagem", locals: {attends: @attends} %>
     </div><!-- /lista-horarios -->
   </div><!-- /col -->
   <div class="col-lg-4">
-    <div id="cadastra-ainda-nao-ta-usando">
-      Cad
+    <div id="cliente-atendimento">
+     <%= render partial: "cliente_atendimento", locals: {attends: @attends} %>
     </div><!-- /cadastra-ainda-nao-ta-usando -->
   </div><!-- /col -->  
 </div><!-- /row -->

@@ -1,10 +1,8 @@
 <%= month_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
-
-<p class="text-center"><strong>
 	<%= link_to qual_dia_path(:dia => date), :remote => true do %>
-    <%= date.day %> 
-  <% end %></strong></p>
-    	<% if attend.length != 0 %>
-    	<span class="badge alert-danger"><%= attend.length %></span>
-    	<% end %>
-      <% end %>
+    <strong><%= date.day %></strong>
+  <% end %>
+  <% if attend.length != 0 %>
+     <div class="text-right num-attends"><%= attend.length %></div>
+  <% end %>
+<% end %>

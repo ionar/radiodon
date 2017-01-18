@@ -59,7 +59,14 @@
   <strong><%= t('cep') %>:</strong>
   <%= @patient.cep %>
 </p>
-
+<p>
+  <strong><%= t('city') %>:</strong>
+  <%= @patient.city %>
+</p>
+<p>
+  <strong><%= t('province') %>:</strong>
+  <%= @patient.province.acronym %>
+</p>
 <p>
   <strong><%= t('phone') %>:</strong>
   <%= @patient.phone %>

@@ -6,11 +6,13 @@ class AttendsController < ApplicationController
     @attends = Attend.where(nil)
     #@attends = Attend.where("clinic_id = ?", current_user.clinic_id)
     #@attends = @attends.para_o_dia(params[:dia]) if params[:dia].present?
-    if params[:dia].present?
-      @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(params[:dia])
-     else
-      @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
-    end
+    ##if params[:dia].present?
+    ##  @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(params[:dia])
+    ## else
+    ##  @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
+    ##end
+
+    @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(params[:dia])
     respond_to do |format|
       format.js
     end
@@ -19,11 +21,12 @@ class AttendsController < ApplicationController
   # GET /attends
   # GET /attends.json
   def index
-    #@attends = Attend.all
-    ##@attends = Attend.where("clinic_id = ?", current_user.clinic_id)
+    @attends_todos = Attend.where(nil)
+    @attends_todos = @attends_todos.para_a_clinica(current_user.clinic_id)
+
     @attends = Attend.where(nil)
-    @attends = @attends.para_a_clinica(current_user.clinic_id)
-    @attends_current = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
+    #@attends = @attends.para_a_clinica(current_user.clinic_id)
+    @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
     #filtro, usa scope no model - desativado por enquanto
     #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
 

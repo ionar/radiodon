@@ -7,8 +7,12 @@ class Attend < ActiveRecord::Base
   validates :appointment, uniqueness: true
   validates :clinic_id, :patient_id, :dentist_id, :schedule, presence: true
 
+  default_scope { order(appointment: :asc) }
+
   scope :para_o_dia, -> (dia) { where schedule: dia }
   scope :para_a_clinica, -> (clinica) { where clinic_id: clinica }
+
+  #scope :four_last, -> { order("products.updated_at DESC LIMIT 4") }
 
   # simple_calendar find column "start_time". Here set a nickname
   def start_time

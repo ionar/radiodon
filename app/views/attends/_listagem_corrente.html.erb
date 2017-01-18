@@ -1,7 +1,0 @@
- <h3><%=l dia_selected, format: :long %></h3>
- <h4>Hoje</h4>
-    <ul>
-      <% @attends_current.each do |attend| %>
-        <li><b><%= attend.appointment.strftime("%H:%M") %></b> - <%= attend.patient.name %> - <%= attend.clinic.fantasy_name %> </li>
-      <% end %>
-      </ul>
