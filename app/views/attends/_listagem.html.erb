@@ -5,12 +5,17 @@
 </h3>
 <ul class="list-group">
 <% @attends.each do |attend| %>
-	<li class="list-group-item"><strong><%= attend.appointment.strftime("%H:%M") %></strong> - <a href="#collapse<%= attend.id %>"  data-toggle="collapse"><%= attend.patient.name %></a>
+	<li class="list-group-item"><strong><%= attend.appointment.strftime("%H:%M") %></strong> - <a href="#modal_<%= attend.id %>"  data-toggle="modal"><%= attend.patient.name %></a>
 
-		<div class="collapse" id="collapse<%= attend.id %>">
-		<br>
-		  	<div class="panel panel-default">
-	  			<div class="panel-body">
+		<!-- Modal -->
+			<div class="modal fade" id="modal_<%= attend.id %>" tabindex="-1" role="dialog" aria-labelledby="modal_<%= attend.id %>">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="modal_label_<%= attend.id %>"><%= attend.patient.name %></h4>
+			      </div>
+			      <div class="modal-body">	        
 					<p>
 					  <strong><%= t('gender') %>:</strong>
 					  <%= attend.patient.gender %>
@@ -69,9 +74,14 @@
 					  <strong><%= t('notes') %>:</strong>
 					  <%= attend.notes %>
 					</p>
-				</div>
-			</div>
-		</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div><!-- /.modal -->
 	</li>
 <% end %>
 </ul>

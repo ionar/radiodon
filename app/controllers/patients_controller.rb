@@ -5,7 +5,17 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     #@patients = Patient.all
-    @patients = Patient.order("name").page(params['page']).per(20)
+    ##@patients = Patient.order("name").page(params['page']).per(20)
+
+    @q = Patient.ransack(params[:q])
+    @q.sorts = 'name' if @q.sorts.empty?
+    @patients = @q.result.page(params['page']).per(20)
+
+     ##search = Component.search(search_params)
+      # make name the default sort column
+      #@search.sorts = 'name' if @search.sorts.empty?
+      #@component = @search.result().page(params[:page])
+
   end
 
   # GET /patients/1

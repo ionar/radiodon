@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'ransack'
+
 gem 'kaminari'
 
 gem 'seed_dump'
