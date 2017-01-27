@@ -4,4 +4,30 @@
     <span class="glyphicon glyphicon-chevron-left"></span> Voltar
   <% end %> 
 </div>
-<%= render 'form' %>
+
+<div class="row">
+  <div class="col-lg-2">
+      <div id="formulario" >
+        <%= render partial: "form" %>
+      </div><!-- /form-->
+  </div><!-- /col -->
+  <div class="col-lg-10">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
+      <li role="presentation"><a href="#mensal" aria-controls="mensal" role="tab" data-toggle="tab">Mensal</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="semanal">
+        <div id="semanal_calendar">
+          <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
+        </div><!-- /semanal_calendar -->
+      </div><!-- /semanal -->
+      <div role="tabpanel" class="tab-pane" id="mensal">
+        <div id="events_calendar">
+          <%= render partial: "calendar_mensal", locals: {attends: @attends_todos} %>
+        </div><!-- /events_calendar -->
+      </div><!-- /mensal -->
+    </div>

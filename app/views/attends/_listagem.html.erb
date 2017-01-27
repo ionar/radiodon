@@ -1,5 +1,5 @@
 <h3><%=l dia_selected, format: :long %>
-	<%= link_to new_attend_path, :class => 'btn btn-primary' do %>
+	<%= link_to new_attend_path(:dia => dia_selected), :class => 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span> Adicionar
   <% end %>
 </h3>

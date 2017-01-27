@@ -1,0 +1,11 @@
+		<%= week_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |data, attends| %>
+			
+		    <%=l data, format: :short %>
+
+		  <hr>
+		  <ul>
+		  <% attends.each do |attend| %>
+		  	<li><%= attend.patient.name %></li>
+		  <% end %>
+		  </ul>
+		<% end %>

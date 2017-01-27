@@ -1,4 +1,26 @@
-<%= simple_form_for(@attend) do |f| %>
+<h3>Dia <%=l dia_selected, format: :long %></h3>
+<h4><%= myclinic %></h4>
+
+
+<%
+commentario = "f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select') "
+comentario2 = "f.input :schedule, :label => t('schedule'), :as => :date_picker "
+%>
+
+<div class="row">
+  <div class="col-lg-4">
+      <div id="events_calendar">
+        <%= render partial: "calendar", locals: {attends: @attends_todos} %>
+      </div><!-- /events_calendar -->
+  </div><!-- /col -->
+  <div class="col-lg-4">
+    <div id="lista-horarios">
+    <%= render partial: "listagem", locals: {attends: @attends} %>
+    </div><!-- /lista-horarios -->
+  </div><!-- /col -->
+  <div class="col-lg-4">
+    <div id="cliente-atendimento">
+         <%= simple_form_for(@attend) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
      
@@ -23,3 +45,9 @@
       <% end %>
   </div>
 <% end %>
+     
+
+
+    </div><!-- /cadastra-ainda-nao-ta-usando -->
+  </div><!-- /col -->  
+</div><!-- /row -->

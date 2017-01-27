@@ -1,12 +1,11 @@
 <div class="simple-calendar">
   <div class="calendar-heading text-center">
-    <ul class="pagination">
-      <li><%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, :remote => true %></li>
-      <li class="disabled"><span class="calendar-title">Semana <%= start_date.strftime("%U").to_i %></span></li>
-      <li><%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, :remote => true %></li>
-    </ul>
+   <ul class="pagination">
+    <li><%= link_to t('simple_calendar.previous', default: 'Anterior'), calendar.url_for_previous_view, :remote => true %></li>
+    <li class="disabled"><span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span></li>
+    <li><%= link_to t('simple_calendar.next', default: 'Próximo'), calendar.url_for_next_view, :remote => true %></li>
+  </ul>
   </div>
-
 
   <table class="table table-striped">
     <thead>

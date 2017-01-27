@@ -1,0 +1,27 @@
+<%= month_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
+	<%= link_to qual_dia_path(:dia => date), :remote => true, :onclick => "this.style.backgroundColor='#990000'" do %>
+    <strong><%= date.day %></strong>
+  <% end %>
+  <% if attend.length != 0 %>
+     <div class="text-right num-attends"><%= attend.length %></div>
+  <% end %>
+<% end %>
+
+
+<%= week_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
+	<%= link_to qual_dia_path(:dia => date), :remote => true, :onclick => "this.style.backgroundColor='#990000'" do %>
+    <strong><%= date.day %></strong>
+  <% end %>
+  <% if attend.length != 0 %>
+     <div class="text-right num-attends"><%= attend.length %></div>
+  <% end %>
+<% end %>
+
+<%= calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
+	<%= link_to qual_dia_path(:dia => date), :remote => true, :onclick => "this.style.backgroundColor='#990000'" do %>
+    <strong><%= date.day %></strong>
+  <% end %>
+  <% if attend.length != 0 %>
+     <div class="text-right num-attends"><%= attend.length %></div>
+  <% end %>
+<% end %>

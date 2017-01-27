@@ -21,6 +21,14 @@ class AttendsController < ApplicationController
   # GET /attends
   # GET /attends.json
   def index
+    @attend = Attend.new
+
+    if params[:dia].present?
+      @attend.schedule = params[:dia]
+    else
+      @attend.schedule = Date.current
+    end
+    
     @attends_todos = Attend.where(nil)
     @attends_todos = @attends_todos.para_a_clinica(current_user.clinic_id)
 
@@ -31,6 +39,7 @@ class AttendsController < ApplicationController
     #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
 
     #@dia_selecionado = params[:dia]
+
   end
 
   # GET /attends/1
@@ -41,6 +50,19 @@ class AttendsController < ApplicationController
   # GET /attends/new
   def new
     @attend = Attend.new
+
+    if params[:dia].present?
+      @attend.schedule = params[:dia]
+    else
+      @attend.schedule = Date.current
+    end
+
+
+    @attends_todos = Attend.where(nil)
+    @attends_todos = @attends_todos.para_a_clinica(current_user.clinic_id)
+
+    @attends = Attend.where(nil)
+    @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
   end
 
   # GET /attends/1/edit
@@ -51,6 +73,14 @@ class AttendsController < ApplicationController
   # POST /attends.json
   def create
     @attend = Attend.new(attend_params)
+    @attend.clinic_id = current_user.clinic_id
+
+    @attends_todos = Attend.where(nil)
+    @attends_todos = @attends_todos.para_a_clinica(current_user.clinic_id)
+
+    @attends = Attend.where(nil)
+    @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
+
 
     respond_to do |format|
       if @attend.save
