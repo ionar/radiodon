@@ -8,6 +8,8 @@
     <% comentario5 = "f.input :schedule, :as => :hidden, :input_html => { :value => dia_selected } " %>
 
     <%= f.input :patient_id, :label => t('patient') %>
+    <%= link_to "Selecionar Paciente", patients_path, remote: true, class: "btn btn-primary" %>
+
     <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
     <%= f.input :appointment, :label => t('appointment'),:as => :time_picker %>
     <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
@@ -23,3 +25,5 @@
       <% end %>
   </div>
 <% end %>
+
+<div id="patient-modal" class="modal fade"></div>

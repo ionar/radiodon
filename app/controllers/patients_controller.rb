@@ -9,7 +9,8 @@ class PatientsController < ApplicationController
 
     @q = Patient.ransack(params[:q])
     @q.sorts = 'name' if @q.sorts.empty?
-    @patients = @q.result.page(params['page']).per(20)
+    ##@patients = @q.result.page(params['page']).per(10) #funciona bem
+    @patients = @q.result.page(params['page']).per(10)
 
      ##search = Component.search(search_params)
       # make name the default sort column

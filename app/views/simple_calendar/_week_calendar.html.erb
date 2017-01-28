@@ -12,7 +12,7 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th><%= t('date.abbr_day_names')[day.wday] %> <small style="color: #999"><%= day.strftime("%d/%m/%Y") %></small></th>
         <% end %>
       </tr>
     </thead>
