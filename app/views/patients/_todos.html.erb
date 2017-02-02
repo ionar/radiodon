@@ -1,4 +1,4 @@
-<div class="modal-dialog">
+<div class="modal-dialog modal-lg">
     <div class="modal-content">
       	<div class="modal-header">
       	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -24,18 +24,25 @@
 				<table class="table table-striped">
 				  <thead>
 				    <tr>
-				      <th><%= sort_link(@q, :name) %></th>
+				      <th><%= t('name') %></th>
 				      <th><%= t('gender') %></th>
 				      <th><%= t('cpf') %></th>
+				      <th><%= t('birth_date') %></th>
 				    </tr>
 				  </thead>
 
 				  <tbody>
 				    <% @patients.each do |patient| %>
 				      <tr>
-				        <td><%= link_to patient.name, patient %></td>
-				        <td><%= patient.gender %></td>
-				        <td><%= patient.cpf %></td>
+				        <td><small><a class="link-paciente-selecao" data-dismiss="modal" onclick="
+				        $('#attend_patient_id').val('<%= patient.id %>');
+				        $('#attend_patient_name').val('<%= patient.name %>');
+				        $('#attend_patient_endereco').val('<%= patient.address %>');
+						$('#attend_patient_cidade').val('<%= patient.city %> - <%= patient.province.acronym %>');
+				        "><%= patient.name %></a></small></td>
+				        <td><small><%= patient.gender %></small></td>
+				        <td><small><%= patient.cpf %></small></td>
+				        <td><small><%= patient.birth_date.strftime("%d/%m/%Y") %></small></td>
 				      </tr>
 				    <% end %>
 				  </tbody>
@@ -49,4 +56,4 @@
 		  </div>
 
     </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->		
+</div><!-- /.modal-dialog -->

@@ -22,3 +22,8 @@
 
 //= require_tree .
 
+$(document).on("turbolinks:load", function() {
+	$('.link-paciente-selecao').click(function() {
+		alert("clicado!");
+	});
+ });

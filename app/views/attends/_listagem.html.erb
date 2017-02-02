@@ -1,21 +1,21 @@
 <div class="list-group">
 <a href="#" class="list-group-item disabled"><strong><%=l dia_selected, format: :long %></strong></a>
 <% @attends.each do |attend| %>
-	<a href="#modal_<%= attend.id %>" class="list-group-item" data-toggle="modal"><span class="badge"><%= attend.appointment.strftime("%H:%M") %></span><%= attend.patient.name %></a>
+	<a href="#modal_listagem_<%= attend.id %>" class="list-group-item" data-toggle="modal"><span class="badge"><%= attend.appointment.strftime("%H:%M") %></span><%= attend.patient.name %></a>
 		<!-- Modal -->
-			<div class="modal fade" id="modal_<%= attend.id %>" tabindex="-1" role="dialog" aria-labelledby="modal_<%= attend.id %>">
-			  <div class="modal-dialog" role="document">
+			<div class="modal fade" id="modal_listagem_<%= attend.id %>" tabindex="-1" role="dialog" aria-labelledby="modal_<%= attend.id %>">
+			  <div class="modal-dialog modal-lg" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="modal_label_<%= attend.id %>"><%= attend.appointment.strftime("%H:%M") %> - <%= attend.patient.name %></h4>
+			        <h4 class="modal-title" id="modal_label_listagem-<%= attend.id %>"><%= attend.appointment.strftime("%H:%M") %> - <%= attend.patient.name %></h4>
 			      </div>
 			      <div class="modal-body">	        
 					<p>
 					  <strong><%= t('gender') %>:</strong>
 					  <%= attend.patient.gender %>
 					  <strong><%= t('birth_date') %>:</strong>
-					  <%= attend.patient.birth_date %>
+					  <%= attend.patient.birth_date.strftime("%d/%m/%Y") %>
 					</p>
 					<p>
 					  <strong><%= t('exams') %>:</strong>
