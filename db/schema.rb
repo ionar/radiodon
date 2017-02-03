@@ -70,12 +70,6 @@ ActiveRecord::Schema.define(version: 20170102162904) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "genders", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "patients", force: :cascade do |t|
     t.string   "filial",       limit: 255
     t.string   "name",         limit: 255
