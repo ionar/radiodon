@@ -1,5 +1,8 @@
 <div class="container">
   <div class="well">
+    <%= Rails.env %>
+  </div>
+  <div class="well">
     <%= link_to "New Product", new_product_path, remote: true, class: "btn btn-primary" %>
   </div>
   <div class="new-product"></div>
