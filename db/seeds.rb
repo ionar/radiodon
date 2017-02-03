@@ -1,4 +1,3 @@
-=begin
 Province.create!([
   {name: "Acre", acronym: "AC"},
   {name: "Alagoas", acronym: "AL"},
@@ -45,7 +44,6 @@ Exam.create!([
   {name: "Documentação"}
 ])
 
-=end
 
 Product.delete_all
 
