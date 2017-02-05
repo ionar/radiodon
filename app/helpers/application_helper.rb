@@ -1,4 +1,8 @@
 module ApplicationHelper
+
+	def uptime
+  		time_ago_in_words(Radiodon::BOOTED_AT)
+	end
 	def bootstrap_class_for(flash_type)
 		case flash_type
 		when "success"

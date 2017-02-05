@@ -19,6 +19,7 @@
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
 		            <li><%= link_to edit_user_registration_path do %><span class="glyphicon glyphicon-user"></span> Conta<% end %></li>
+		            <li><%= link_to welcome_index_path do %><span class="glyphicon glyphicon-info-sign"></span> Info<% end %></li>
 		            <li role="separator" class="divider"></li>
 		            <li><%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span> Sair <% end %></li>
 		          </ul>

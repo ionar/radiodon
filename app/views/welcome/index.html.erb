@@ -1,83 +1,9 @@
-<h1>Welcome#index</h1>
+<h1>Informações sobre o sistema</h1>
 <hr>
-<%= current_user.clinic.fantasy_name %>
-<hr>
-
-<hr>
-<h3><%= t('hello') %></h3>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<dl>
-  <dt>Number to Currency</dt>
-  <dd><%= number_to_currency(123.56) %></dd>
-
-    <dt>Number to Currency personalized in helper</dt>
-  <dd><%= my_formatted_number(123.56) %></dd>
-
-  <dt>Number to Human</dt>
-  <dd><%= number_to_human(100_555_123.15) %></dd>
-
-  <dt>Date</dt>
-  <dd><%=l Time.current, format: :long %></dd>
-
-  <dt>Date normal</dt>
-  <dd><%= Date.current.strftime("%d/%m/%Y") %></dd>  
-
-  <dt>Time</dt>
-  <dd><%= distance_of_time_in_words(1.hour + 20.minutes) %></dd>
-</dl>
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t('patient') %></th>
-      <th><%= t('clinic') %></th>
-      <th><%= t('schedule') %></th>
-      <th><%= t('finalized') %></th>
-      <th><%= t('missed') %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @attends.each do |attend| %>
-      <tr>
-        <td><%= link_to attend.patient.name, attend %></td>
-        <td><%= attend.clinic.fantasy_name %></td>
-        <td><%=l attend.schedule, format: :short %></td>
-        <td><% if attend.finalized == true %>
-        <span class="glyphicon glyphicon-ok alert-success"> </span>
-        <% end %>
-         </td>
-        <td><% if attend.missed == true %>
-        <span class="glyphicon glyphicon-asterisk alert-danger"> </span>
-        <% end %>
-      </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+  <div class="well">
+    Clínica: <%= current_user.clinic.fantasy_name %> <br>
+    Ambiente: <%= Rails.env %><br>
+    Uptime: <%= uptime %>
   </div>
-</div>
+
+

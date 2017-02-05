@@ -1,0 +1,1 @@
+Radiodon::BOOTED_AT = Time.now
