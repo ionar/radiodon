@@ -5,7 +5,4 @@ class Patient < ActiveRecord::Base
   validates :name, :cpf, :rg, :email, uniqueness: true
   validates :name, :phone, presence: true
 
-  def name
-        super().upcase
-    end
 end

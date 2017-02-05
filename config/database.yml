@@ -53,4 +53,4 @@ production:
   username: root
   host: <%= ENV['RADIODONTICA3_DATABASE_HOST'] %>
   password: <%= ENV['RADIODONTICA3_DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  #socket: /var/lib/mysql/mysql.sock
