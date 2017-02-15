@@ -17,6 +17,18 @@
  *= require_self
  */
 
+// First import cerulean variables
+@import "bootswatch/cosmo/variables";
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// Bootstrap body padding for fixed navbar
+////body { padding-top: 60px; }
+// And finally bootswatch style itself
+@import "bootswatch/cosmo/bootswatch";
+
+
+
 /*
 @font-face {
    font-family: 'Glyphicons Halflings';
@@ -71,3 +83,5 @@
 .link-paciente-selecao{
   cursor: pointer;
 }
+
+

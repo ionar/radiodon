@@ -1,4 +1,4 @@
-<h1><%= t("attends") %></h1>
+<h1><%= t("attends") %> - <%= current_user.clinic.fantasy_name %></h1>
 <div class="text-right">
   <%= link_to new_attend_path, :class => 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span> Adicionar

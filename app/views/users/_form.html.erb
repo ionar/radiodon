@@ -1,0 +1,14 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, autocomplete: "off", required: false %>
+    <%= f.input :password_confirmation, required: false %>
+    <%= f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select'), required: true  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

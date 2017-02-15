@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootswatch-rails'
+
 gem 'ransack'
 
 gem 'kaminari'

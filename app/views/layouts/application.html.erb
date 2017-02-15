@@ -11,7 +11,7 @@
   <%= render 'application/favicon' %>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -21,8 +21,8 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-		    <%= link_to root_path, :class => 'navbar-brand' do %>
-		    	RADIODON
+		    <%= link_to root_path, :class => 'navbar-brand logo-custom' do %>
+		    	<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> RADIODON
 		    <% end %>
 		</div>
 			<%= if user_signed_in? 

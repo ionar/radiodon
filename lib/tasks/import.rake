@@ -23,3 +23,5 @@ namespace :import do
 		puts "#{counter} importados"
 	end
 end
+# Comando:
+# bundle exec rake import:patients RAILS_ENV=production
