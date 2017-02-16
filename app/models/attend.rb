@@ -4,7 +4,7 @@ class Attend < ActiveRecord::Base
   belongs_to :dentist
   has_and_belongs_to_many :exam
 
-  validates :clinic_id, :appointment, :patient_id, :dentist_id, :schedule, presence: true
+  validates :clinic_id, :appointment, :patient_id, :schedule, presence: true
 
   default_scope { order(appointment: :asc) }
 

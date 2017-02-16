@@ -1,15 +1,11 @@
-
-
-
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="menu">
 			<ul class="nav navbar-nav">
 				<li class="<%= active?('attends')%>"><%= link_to "AGENDA", attends_path %></li>
 				<li class="<%= active?('clinics')%>"><%= link_to "CLÍNICAS", clinics_path %></li>
 				<li class="<%= active?('dentists')%>"><%= link_to "DENTISTAS", dentists_path %></li>
+				<li class="<%= active?('exams')%>"><%= link_to "EXAMES", exams_path %></li>				
 				<li class="<%= active?('patients')%>"><%= link_to "PACIENTES", patients_path %></li>
-				<li class="<%= active?('exams')%>"><%= link_to "EXAMES", exams_path %></li>
-
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 		        <li>
@@ -31,14 +27,3 @@
 		        </li>
 		    </ul>
 		</div><!-- /.navbar-collapse -->
-
-
-<% commentariosss = '
-<form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form> '
-
-%>

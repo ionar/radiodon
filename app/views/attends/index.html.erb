@@ -1,16 +1,23 @@
-<h1><%= t("attends") %> - <%= current_user.clinic.fantasy_name %></h1>
-<div class="text-right">
-  <%= link_to new_attend_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span> Adicionar
-  <% end %>
-</div>
-
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+      <h2><%= t("attends") %> - <%= current_user.clinic.fantasy_name %></h2>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="text-right">
+        <h2>
+          <%= link_to new_attend_path, :class => 'btn btn-primary' do %>
+            <span class="glyphicon glyphicon-plus"></span> Adicionar
+          <% end %>
+        </h2>
+      </div>
+    </div>
+  </div> <!-- /.row -->
 <div class="row">
   <div class="col-lg-12 col-md-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
-      <li role="presentation"><a href="#mensal" aria-controls="mensal" role="tab" data-toggle="tab">Mensal</a></li>
+      <li role="presentation"><a href="#diario" aria-controls="diario" role="tab" data-toggle="tab">Diário</a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -20,7 +27,7 @@
           <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
         </div><!-- /semanal_calendar -->
       </div><!-- /semanal -->
-      <div role="tabpanel" class="tab-pane" id="mensal">
+      <div role="tabpanel" class="tab-pane" id="diario">
         <div id="events_calendar">
           <%= render partial: "calendar_mensal", locals: {attends: @attends_todos} %>
         </div><!-- /events_calendar -->
