@@ -33,7 +33,7 @@ comentario2 = "f.input :schedule, :label => t('schedule'), :as => :date_picker "
     <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
     <%= f.input :appointment, :label => t('appointment'),:as => :time_picker %>
     <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
-    <%= f.association :dentist, :label => t('dentist'), prompt: t('select') %>
+    <%= f.association :requester, :label => t('requester'), prompt: t('select') %>
     <%= f.input :payment_detail, :label => t('payment_detail') %>
     <%= f.input :finalized, :label => t('finalized') %>
     <%= f.input :missed, :label => t('missed') %>

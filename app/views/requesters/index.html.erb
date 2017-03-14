@@ -1,11 +1,11 @@
   <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <h2><%= t("dentists") %></h2>
+      <h2><%= t("requesters") %></h2>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="text-right">
         <h2>
-          <%= link_to new_dentist_path, :class => 'btn btn-primary' do %>
+          <%= link_to new_requester_path, :class => 'btn btn-primary' do %>
             <span class="glyphicon glyphicon-plus"></span> Adicionar
           <% end %>
         </h2>
@@ -23,12 +23,12 @@
   </thead>
 
   <tbody>
-    <% @dentists.each do |dentist| %>
+    <% @requesters.each do |requester| %>
       <tr>
-        <td><%= link_to dentist.name, dentist %></td>
-        <td><%= h(dentist.register) %></td>
-        <td><%= dentist.email %></td>
-        <td><%= dentist.phone %></td>
+        <td><%= link_to requester.name, requester %></td>
+        <td><%= h(requester.register) %></td>
+        <td><%= requester.email %></td>
+        <td><%= requester.phone %></td>
       </tr>
     <% end %>
   </tbody>

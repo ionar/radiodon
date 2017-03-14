@@ -34,9 +34,9 @@ Clinic.create!([
   {fantasy_name: "Radiodôntica - Itapiranga", corporate_name: "MSS ", cnpj: "656465464", technical_manager: "Dr. Vilmar Siviero", address: "Av. Beira Rio", cep: "89900-000", city: "Itapiranga", province_id: 1, phone: "6464654"},
   {fantasy_name: "Radiodôntica Cedro", corporate_name: "MSS tal", cnpj: "64684648", technical_manager: "Dr. Vilmar Siviero", address: "Rua Rio", cep: "89905-000", city: "São José do Cedro", province_id: 1, phone: "684684684"}
 ])
-Dentist.create!([
+Requester.create!([
+  {name: "O próprio paciente", register: "", email: "", phone: "", notes: ""},
   {name: "Dr. Vilmar Cleoci Siviero", register: "CRO 3628/SC", email: "radiodontica@radiodontica.com.br", phone: "", notes: "Requer que envie a doc para o consultório."},
-  {name: "Dr. Ariovaldo", register: "CRO 6666", email: "", phone: "", notes: ""}
 ])
 Exam.create!([
   {name: "PAN"},

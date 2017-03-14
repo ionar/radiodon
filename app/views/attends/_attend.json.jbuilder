@@ -1,2 +1,2 @@
-json.extract! attend, :id, :clinic_id, :patient_id, :schedule, :exam_id, :dentist_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :created_at, :updated_at
+json.extract! attend, :id, :clinic_id, :patient_id, :schedule, :exam_id, :requester_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :created_at, :updated_at
 json.url attend_url(attend, format: :json)

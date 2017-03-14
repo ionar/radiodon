@@ -1,31 +1,24 @@
 <%= simple_form_for(@attend) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
-     
-    <% comentario4 = "f.hidden_field :clinic_id, value: my_clinic_id " %>
-    <% comentario3 = "f.hidden_field :schedule, value: dia_selected" %>
-
-    <% comentario5 = "f.input :schedule, :as => :hidden, :input_html => { :value => dia_selected } " %>
-    <div class="form-group"><%= link_to "Vincular Paciente", patients_path, remote: true, class: "btn btn-primary" %></div>
-    <%= f.hidden_field :patient_id, :label => t('patient') %>
-    <div class="form-group"><small><input class="form-control" type="text" name="hidden-name" id="attend_patient_name" disabled /></div></small>
-    <div class="form-group"><input class="form-control" type="text" name="hidden-endereco" id="attend_patient_endereco" disabled />
+    <div class="form-group">
+      <%= link_to patients_path, remote: true, class: "btn btn-success" do %>
+        <span class="glyphicon glyphicon-lock" aria-hidden="true"> </span> Selecionar Paciente
+      <% end %>
     </div>
-    <div class="form-group"><input class="form-control" type="text" name="hidden-cidade" id="attend_patient_cidade" disabled /></div>
-    <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
-    <%= f.input :appointment, :label => t('appointment'),:as => :time_picker %>
-    <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
-    <%= f.association :dentist, :label => t('dentist'), prompt: t('select') %>
-    <%= f.input :payment_detail, :label => t('payment_detail') %>
-    <%= f.input :finalized, :label => t('finalized') %>
-    <%= f.input :missed, :label => t('missed') %>
+    <%= f.hidden_field :patient_id, :label => t('patient') %> 
+    <%= f.hidden_field :schedule, :label => t('schedule'), :as => :date_picker %>   
+    <%= f.hidden_field :appointment, :label => t('appointment')  %>
+    <%= f.association :requester, :label => t('requester'), prompt: t('select') %> 
+    <%= f.association :exam, :label => t('exams'), as: :check_boxes %>    
     <%= f.input :notes, :label => t('notes') %>
-  </div>
-<div class="actions text-right">
+    <%= f.input :finalized, :label => t('finalized')+"?" %>
+  </div><!-- /form-inputs -->
+  <div class="actions text-right">
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
         <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
       <% end %>
   </div>
 <% end %>
-
-<div id="patient-modal" class="modal fade"></div>
+<div class="modal fade" id="patient-modal"></div>
+<div class="modal fade" id="patient-new-modal"></div>

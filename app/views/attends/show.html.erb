@@ -41,23 +41,13 @@
 </p>
 
 <p>
-  <strong><%= t('dentist') %>:</strong>
-  <%= @attend.dentist.name %>
-</p>
-
-<p>
-  <strong><%= t('payment_detail') %>:</strong>
-  <%= @attend.payment_detail %>
+  <strong><%= t('requester') %>:</strong>
+  <%= @attend.requester.name %>
 </p>
 
 <p>
   <strong><%= t('finalized') %>:</strong>
   <%= human_boolean(@attend.finalized) %>
-</p>
-
-<p>
-  <strong><%= t('missed') %>:</strong>
-  <%= human_boolean(@attend.missed) %>
 </p>
 
 <p>

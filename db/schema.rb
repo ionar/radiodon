@@ -11,27 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102162904) do
+ActiveRecord::Schema.define(version: 20170314171414) do
 
   create_table "attends", force: :cascade do |t|
-    t.integer  "clinic_id",      limit: 4
-    t.integer  "patient_id",     limit: 4
-    t.time     "appointment"
+    t.integer  "clinic_id",    limit: 4
+    t.integer  "patient_id",   limit: 4
     t.date     "schedule"
-    t.integer  "exam_id",        limit: 4
-    t.integer  "dentist_id",     limit: 4
-    t.text     "notes",          limit: 65535
-    t.string   "payment_detail", limit: 255
+    t.time     "appointment"
+    t.integer  "exam_id",      limit: 4
+    t.text     "notes",        limit: 65535
     t.boolean  "finalized"
-    t.boolean  "missed"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "requester_id", limit: 4
   end
 
   add_index "attends", ["clinic_id"], name: "index_attends_on_clinic_id", using: :btree
-  add_index "attends", ["dentist_id"], name: "index_attends_on_dentist_id", using: :btree
   add_index "attends", ["exam_id"], name: "index_attends_on_exam_id", using: :btree
   add_index "attends", ["patient_id"], name: "index_attends_on_patient_id", using: :btree
+  add_index "attends", ["requester_id"], name: "index_attends_on_requester_id", using: :btree
 
   create_table "attends_exams", id: false, force: :cascade do |t|
     t.integer "attend_id", limit: 4
@@ -54,17 +52,13 @@ ActiveRecord::Schema.define(version: 20170102162904) do
 
   add_index "clinics", ["province_id"], name: "index_clinics_on_province_id", using: :btree
 
-  create_table "dentists", force: :cascade do |t|
+  create_table "exams", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.string   "register",   limit: 255
-    t.string   "email",      limit: 255
-    t.string   "phone",      limit: 255
-    t.text     "notes",      limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "exams", force: :cascade do |t|
+  create_table "genders", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -108,6 +102,16 @@ ActiveRecord::Schema.define(version: 20170102162904) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "requesters", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "register",   limit: 255
+    t.string   "email",      limit: 255
+    t.string   "phone",      limit: 255
+    t.text     "notes",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -129,9 +133,9 @@ ActiveRecord::Schema.define(version: 20170102162904) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "attends", "clinics"
-  add_foreign_key "attends", "dentists"
   add_foreign_key "attends", "exams"
   add_foreign_key "attends", "patients"
+  add_foreign_key "attends", "requesters"
   add_foreign_key "clinics", "provinces"
   add_foreign_key "patients", "provinces"
   add_foreign_key "users", "clinics"

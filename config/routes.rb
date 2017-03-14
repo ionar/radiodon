@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :attends
   resources :exams
   resources :patients
-  resources :dentists
+  resources :requesters
   resources :clinics
   get 'welcome/index'
 

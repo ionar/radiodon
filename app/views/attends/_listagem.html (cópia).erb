@@ -1,0 +1,81 @@
+<div class="list-group">
+<a href="#" class="list-group-item disabled"><strong><%=l dia_selected, format: :long %></strong></a>
+<% @attends.each do |attend| %>
+	<a href="#modal_listagem_<%= attend.id %>" class="list-group-item" data-toggle="modal"><span class="badge"><%= attend.appointment.strftime("%H:%M") %></span><%= attend.patient.name %></a>
+		<!-- Modal -->
+			<div class="modal fade" id="modal_listagem_<%= attend.id %>" tabindex="-1" role="dialog" aria-labelledby="modal_<%= attend.id %>">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="modal_label_listagem-<%= attend.id %>"><%= attend.appointment.strftime("%H:%M") %> - <%= attend.patient.name %></h4>
+			      </div>
+			      <div class="modal-body">	        
+					<p>
+					  <strong><%= t('gender') %>:</strong>
+					  <%= attend.patient.gender %>
+					  <strong><%= t('birth_date') %>:</strong>
+					  <%= attend.patient.birth_date.strftime("%d/%m/%Y") %>
+					</p>
+					<p>
+					  <strong><%= t('exams') %>:</strong>
+					  <ul>
+					  <% attend.exam.each do |exame| %>
+					    <li><%= exame.name %></li>
+					  <% end %>
+					  </ul>
+					</p>
+					<p>
+					  <strong><%= t('requester') %>:</strong>
+					  <%= attend.requester.name %>
+					</p>					
+					<p>
+					  <strong><%= t('rg') %>:</strong>
+					  <%= attend.patient.rg %>
+					</p>		  			
+					<p>
+					  <strong><%= t('cpf') %>:</strong>
+					  <%= attend.patient.cpf %>
+					</p>		  			
+					<p>
+					  <strong><%= t('address') %>:</strong>
+					  <%= attend.patient.address %> <%= attend.patient.city %> <%= attend.patient.province.acronym %>
+					</p>	  			
+					<p>
+					  <strong><%= t('email') %>:</strong>
+					  <%= attend.patient.email %>
+					</p>		  			
+  			
+					<p>
+					  <strong><%= t('phone') %>:</strong>
+					  <%= attend.patient.phone %>. <%= attend.patient.phone2 %>
+					</p>
+					<p>
+					  <strong><%= t('payment_detail') %>:</strong>
+					  <%= attend.payment_detail %>
+					</p>
+
+					<p>
+					  <strong><%= t('finalized') %>:</strong>
+					  <%= human_boolean(attend.finalized) %>
+					</p>
+
+					<p>
+					  <strong><%= t('missed') %>:</strong>
+					  <%= human_boolean(attend.missed) %>
+					</p>
+
+					<p>
+					  <strong><%= t('notes') %>:</strong>
+					  <%= attend.notes %>
+					</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			      </div>
+			    </div>
+			  </div>
+			</div><!-- /.modal -->
+
+<% end %>
+</div><!-- /.list-group -->

@@ -27,6 +27,14 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
+
+    if params[:birth_date].present?
+      @patient.birth_date = params[:birth_date]
+    end
+
+    if params[:province_id].present?
+      @patient.province_id = params[:province_id]
+    end
   end
 
   # GET /patients/1/edit
@@ -42,9 +50,12 @@ class PatientsController < ApplicationController
       if @patient.save
         format.html { redirect_to @patient, notice: t('create_success') }
         format.json { render :show, status: :created, location: @patient }
+        #format.js { render :show, status: :created, location: @patient }
+        format.js { }
       else
         format.html { render :new }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
+        format.js { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
   end

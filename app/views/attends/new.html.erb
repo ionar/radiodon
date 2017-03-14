@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <h2><%= t('New') %> <%= t('attend') %></h2>
+      <h2><%= t('New') %> <%= t('attend') %> / <strong><%=l @attend.schedule, format: :long %> - <%= @attend.appointment.strftime("%H:%M") %></strong></h2>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="text-right">
@@ -12,32 +12,15 @@
       </div>
     </div>
   </div> <!-- /.row -->
-
-<div class="row">
-  <div class="col-lg-3 col-md-3">
-      <div id="formulario" >
-        <%= render partial: "form" %>
-      </div><!-- /form-->
-  </div><!-- /col -->
-  <div class="col-lg-9 col-md-9">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
-      <li role="presentation"><a href="#mensal" aria-controls="mensal" role="tab" data-toggle="tab">Mensal</a></li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="semanal">
-        <div id="semanal_calendar">
-          <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
-        </div><!-- /semanal_calendar -->
-      </div><!-- /semanal -->
-      <div role="tabpanel" class="tab-pane" id="mensal">
-        <div id="events_calendar">
-          <%= render partial: "calendar_mensal", locals: {attends: @attends_todos} %>
-        </div><!-- /events_calendar -->
-      </div><!-- /mensal -->
-    </div>
-  </div><!-- /row -->
-</div><!-- /col-lg-2 -->
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <span>Nome Completo: </span><span id="attend_patient_name" class="panel-patient"></span><br>
+      <span>CPF: </span><span id="attend_patient_cpf" class="panel-patient"></span><br>
+      <span>Endereço: </span><span id="attend_patient_endereco" class="panel-patient"></span><br>
+      <span>Cidade/UF: </span><span id="attend_patient_cidade" class="panel-patient"></span><br>
+      <span>Nascimento: </span><span id="attend_patient_nascimento" class="panel-patient"></span><br>
+    </div><!-- /panel-body -->
+  </div><!-- /panel -->
+  <div id="formulario" >
+    <%= render partial: "form" %>
+  </div><!-- /form-->

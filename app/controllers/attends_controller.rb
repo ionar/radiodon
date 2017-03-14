@@ -38,7 +38,6 @@ class AttendsController < ApplicationController
     #filtro, usa scope no model - desativado por enquanto
     #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
 
-    #@dia_selecionado = params[:dia]
 
   end
 
@@ -55,6 +54,10 @@ class AttendsController < ApplicationController
       @attend.schedule = params[:dia]
     else
       @attend.schedule = Date.current
+    end
+
+    if params[:hora].present?
+      @attend.appointment = params[:hora]
     end
 
 
@@ -86,9 +89,11 @@ class AttendsController < ApplicationController
       if @attend.save
         format.html { redirect_to @attend, notice: t('create_success') }
         format.json { render :show, status: :created, location: @attend }
+        #format.js   {render :show, status: :created, location: @attend }
       else
         format.html { render :new }
         format.json { render json: @attend.errors, status: :unprocessable_entity }
+        #format.js {render json: @attend.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -125,6 +130,6 @@ class AttendsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attend_params
-      params.require(:attend).permit(:clinic_id, :patient_id, :schedule, :appointment, :dentist_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
+      params.require(:attend).permit(:clinic_id, :patient_id, :schedule, :appointment, :requester_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
     end
 end

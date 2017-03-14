@@ -1,0 +1,9 @@
+//$("#patient-new-modal").html("<%= escape_javascript(render 'new_modal') %>");
+//$("#patient-modal").modal("hide"); 
+$("#patient-new-modal").modal("hide");
+$('#attend_patient_id').val('<%= @patient.id %>');
+$('#attend_patient_endereco').html('<%= @patient.address %>');
+$('#attend_patient_cidade').html('<%= @patient.city %> - <%= @patient.province.acronym %>');
+$('#attend_patient_cpf').html('<%= @patient.cpf %>');
+$('#attend_patient_name').html('<%= @patient.name %>');
+$('#attend_patient_nascimento').html('<%= @patient.birth_date %>');

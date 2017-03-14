@@ -1,37 +1,46 @@
   <div class="row">
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-      <h2><%= t("attends") %> - <%= current_user.clinic.fantasy_name %></h2>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <h2><%= t("attends") %></h2>
     </div>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
       <div class="text-right">
         <h2>
-          <%= link_to new_attend_path, :class => 'btn btn-primary' do %>
-            <span class="glyphicon glyphicon-plus"></span> Adicionar
-          <% end %>
+          <%= current_user.clinic.fantasy_name %>
         </h2>
       </div>
     </div>
-  </div> <!-- /.row -->
-<div class="row">
-  <div class="col-lg-12 col-md-12">
+  </div><!-- /.row -->
+
+
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
-      <li role="presentation"><a href="#diario" aria-controls="diario" role="tab" data-toggle="tab">Diário</a></li>
+      <li role="presentation"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
+      <li role="presentation" class="active"><a href="#diario" aria-controls="diario" role="tab" data-toggle="tab">Diário</a></li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="semanal">
+      <div role="tabpanel" class="tab-pane" id="semanal">
         <div id="semanal_calendar">
           <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
         </div><!-- /semanal_calendar -->
       </div><!-- /semanal -->
-      <div role="tabpanel" class="tab-pane" id="diario">
-        <div id="events_calendar">
-          <%= render partial: "calendar_mensal", locals: {attends: @attends_todos} %>
-        </div><!-- /events_calendar -->
-      </div><!-- /mensal -->
-    </div>
-  </div><!-- /row -->
-</div><!-- /col-lg-12 -->
+      <div role="tabpanel" class="tab-pane active" id="diario">
+        <div class="row">
+          <div class="col-sm-6 col-xd-6">
+            <div id="events_calendar">
+              <%= render partial: "calendar_mensal", locals: {attends: @attends_todos} %>
+            </div><!-- /events_calendar -->
+          </div><!-- /col -->
+          <div class="col-sm-6 col-xd-6">
+            <div id="lista-horarios">
+              <%= render partial: "listagem", locals: {attends: @attends} %>
+            </div><!-- /lista-horarios -->
+          </div><!-- /col -->
+        </div><!-- /row -->   
+      </div><!-- /tabpanel -->
+    </div><!-- /tab-content -->
+
+<div class="modal fade" id="attend-modal"></div>
+
+

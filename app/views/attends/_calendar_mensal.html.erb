@@ -1,18 +1,8 @@
-<div class="row">
-	<div class="col-sm-6 col-xd-6">
-		<%= month_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
-			<%= link_to qual_dia_path(:dia => date), :remote => true do %>
-		    <strong><%= date.day %></strong>
-		  <% end %>
-		  <% if attend.length != 0 %>
-		     <div class="text-right num-attends"><%= attend.length %></div>
-		  <% end %>
-		<% end %>    	
-	</div><!-- /.col -->
-	<div class="col-sm-6 col-xd-6">
-	<div style="height: 77px" class="hidden-xs"></div>
-	    <div id="lista-horarios">
-    		<%= render partial: "listagem", locals: {attends: @attends} %>
-    	</div><!-- /lista-horarios -->
-	</div><!-- /.col -->
-</div><!-- /.row -->
+<%= month_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, attend| %>
+	<%= link_to qual_dia_path(:dia => date), :remote => true do %>
+    <strong><%= date.day %></strong>
+  <% end %>
+  <% if attend.length != 0 %>
+     <div class="text-right num-attends"><%= attend.length %></div>
+  <% end %>
+<% end %>

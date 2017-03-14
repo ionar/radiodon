@@ -1,86 +1,9 @@
 <%= week_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |data, attends| %>
-
-<div class="list-group">
-<% attends.each do |attend| %>
-	<a href="#modal_<%= attend.id %>" class="list-group-item" data-toggle="modal"><small><strong><%= attend.appointment.strftime("%H:%M") %></strong><br><%= attend.patient.name %></small></a>
-		<!-- Modal -->
-			<div class="modal fade" id="modal_<%= attend.id %>" tabindex="-1" role="dialog" aria-labelledby="modal_<%= attend.id %>">
-			  <div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="modal_label_<%= attend.id %>"><%= attend.appointment.strftime("%H:%M") %> - <%= attend.patient.name %></h4>
-			      </div>
-			      <div class="modal-body">	        
-					<p>
-					  <strong><%= t('gender') %>:</strong>
-					  <%= attend.patient.gender %>
-					  <strong><%= t('birth_date') %>:</strong>
-					  <%= attend.patient.birth_date %>
-					</p>
-					<p>
-					  <strong><%= t('exams') %>:</strong>
-					  <ul>
-					  <% attend.exam.each do |exame| %>
-					    <li><%= exame.name %></li>
-					  <% end %>
-					  </ul>
-					</p>
-					<p>
-					  <strong><%= t('dentist') %>:</strong>
-					  <%= attend.dentist.name %>
-					</p>					
-					<p>
-					  <strong><%= t('rg') %>:</strong>
-					  <%= attend.patient.rg %>
-					</p>		  			
-					<p>
-					  <strong><%= t('cpf') %>:</strong>
-					  <%= attend.patient.cpf %>
-					</p>		  			
-					<p>
-					  <strong><%= t('address') %>:</strong>
-					  <%= attend.patient.address %> <%= attend.patient.city %> <%= attend.patient.province.acronym %>
-					</p>	  			
-					<p>
-					  <strong><%= t('email') %>:</strong>
-					  <%= attend.patient.email %>
-					</p>		  			
-  			
-					<p>
-					  <strong><%= t('phone') %>:</strong>
-					  <%= attend.patient.phone %>. <%= attend.patient.phone2 %>
-					</p>
-					<p>
-					  <strong><%= t('payment_detail') %>:</strong>
-					  <%= attend.payment_detail %>
-					</p>
-
-					<p>
-					  <strong><%= t('finalized') %>:</strong>
-					  <%= human_boolean(attend.finalized) %>
-					</p>
-
-					<p>
-					  <strong><%= t('missed') %>:</strong>
-					  <%= human_boolean(attend.missed) %>
-					</p>
-
-					<p>
-					  <strong><%= t('notes') %>:</strong>
-					  <%= attend.notes %>
-					</p>
-			      </div>
-			      <div class="modal-footer">
-			        <%= link_to "Editar", edit_attend_path(attend), :class => "btn btn-info" %>		      
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-			      </div>
-			    </div>
-			  </div>
-			</div><!-- /.modal -->
-
-<% end %>
-</div><!-- /.list-group -->
-
-
+<small>
+	<% attends.each do |attend| %>
+		<%= link_to attend, :class => "list-group-item", :remote => true do %>
+			<span class="badge"><%= attend.appointment.strftime("%H:%M") %></span><%= attend.patient.name %>
+		<% end %>
+	<% end %>
+</small>
 <% end %>

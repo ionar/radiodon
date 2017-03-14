@@ -1,17 +1,17 @@
   <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <h2><%= @dentist.name %></h2>
+      <h2><%= @requester.name %></h2>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="text-right">
         <h2>
-          <%= link_to dentists_path, :class => 'btn btn-primary' do %>
+          <%= link_to requesters_path, :class => 'btn btn-primary' do %>
             <span class="glyphicon glyphicon-chevron-left"></span> Voltar
           <% end %> 
-          <%= link_to edit_dentist_path(@dentist), :class => 'btn btn-success' do %>
+          <%= link_to edit_requester_path(@requester), :class => 'btn btn-success' do %>
             <span class="glyphicon glyphicon-list-alt"></span> Editar
           <% end %> 
-          <%= link_to dentist_path(@dentist), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
+          <%= link_to requester_path(@requester), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
             <span class="glyphicon glyphicon-remove"></span> Apagar
           <% end %> 
         </h2>
@@ -20,34 +20,34 @@
   </div> <!-- /.row -->
 <p>
   <strong><%= t("name") %>:</strong>
-  <%= @dentist.name %>
+  <%= @requester.name %>
 </p>
 
 <p>
   <strong><%= t("register") %>:</strong>
-  <%= @dentist.register %>
+  <%= @requester.register %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @dentist.email %>
+  <%= @requester.email %>
 </p>
 
 <p>
   <strong><%= t("phone") %>:</strong>
-  <%= @dentist.phone %>
+  <%= @requester.phone %>
 </p>
 
 <p>
   <strong><%= t("notes") %>:</strong>
-  <%= @dentist.notes %>
+  <%= @requester.notes %>
 </p>
 
 <p>
   <strong>Criado em:</strong>
-  <%=l @dentist.created_at, format: :long %>
+  <%=l @requester.created_at, format: :long %>
 </p>
 <p>
   <strong>Atualizado em:</strong>
-  <%=l @dentist.updated_at, format: :long %>
+  <%=l @requester.updated_at, format: :long %>
 </p>

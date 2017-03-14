@@ -8,6 +8,16 @@ module AttendsHelper
     end
   end
 
+  def apontamento(hora)
+    @hora = hora
+    consulta = @attends.find_by appointment: @hora
+    if (consulta) 
+      return link_to "<span class='glyphicon glyphicon-check'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem"
+    else
+      return link_to "<span class='glyphicon glyphicon-calendar'></span> <span class='badge'>#{@hora}</span> ...".html_safe, new_attend_path(:dia => dia_selected, :hora => @hora), :class => "list-group-item list-group-item-action links-listagem"
+    end
+  end
+
 
 	 def myclinic
     	render :text => current_user.clinic.fantasy_name

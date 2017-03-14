@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <h2>Editar <%= t("attend") %></h2>
+      <h2>Editar <%= t("attend") %> / <strong><%=l @attend.schedule, format: :long %> - <%= @attend.appointment.strftime("%H:%M") %></strong></h2>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="text-right">
@@ -15,5 +15,13 @@
       </div>
     </div>
   </div> <!-- /.row -->
-<h1><%= @attend.patient.name %></h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <span>Nome Completo: </span><span id="attend_patient_name" class="panel-patient"><%= @attend.patient.name %></span><br>
+      <span>CPF: </span><span id="attend_patient_cpf" class="panel-patient"><%= @attend.patient.cpf %></span><br>
+      <span>Endereço: </span><span id="attend_patient_endereco" class="panel-patient"><%= @attend.patient.address %></span><br>
+      <span>Cidade/UF: </span><span id="attend_patient_cidade" class="panel-patient"><%= @attend.patient.city %> / <%= @attend.patient.province.acronym %></span><br>
+      <span>Nascimento: </span><span id="attend_patient_nascimento" class="panel-patient"><%= @attend.patient.birth_date.strftime("%d/%m/%Y") %></span><br>
+    </div><!-- /panel-body -->
+  </div><!-- /panel -->
 <%= render 'form' %>
