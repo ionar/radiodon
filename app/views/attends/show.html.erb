@@ -1,13 +1,11 @@
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-      <h2>Agendamento / <strong><%=l @attend.schedule, format: :short %> - <%= @attend.appointment.strftime("%H:%M") %></strong></h2>
+      <h2>Agendamento <small><%= l(@attend.schedule, format: '%A, %d de %B') %> - <%= @attend.appointment.strftime("%H:%M") %></small></h2>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
       <div class="text-right">
         <h2>
-<%= link_to attends_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
-  <% end %>
+        <%= link_to 'Voltar', :back, :class => 'btn btn-primary' %>
   <!-- dropdown imprimir -->
   <div class="btn-group">
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -36,7 +34,7 @@
   <div class="panel-body">
     <p>
       <strong><%= t('clinic') %>:</strong>
-      <%= @attend.clinic.fantasy_name %>
+      <%= @attend.clinic.fantasy_name %> <strong><%= t('finalized') %>:</strong> <%= human_boolean(@attend.finalized) %>
     </p>
     <p>
       <strong><%= t('schedule') %>:</strong>
@@ -56,12 +54,9 @@
     </p>       
     <p>
       <strong><%= t('rg') %>:</strong>
-      <%= @attend.patient.rg %>
-    </p>            
-    <p>
-      <strong><%= t('cpf') %>:</strong>
+      <%= @attend.patient.rg %> <strong><%= t('cpf') %>:</strong>
       <%= @attend.patient.cpf %>
-    </p>            
+    </p>                   
     <p>
       <strong><%= t('address') %>:</strong>
       <%= @attend.patient.address %> <%= @attend.patient.city %> <%= @attend.patient.province.acronym %>
@@ -74,11 +69,6 @@
     <p>
       <strong><%= t('phone') %>:</strong>
       <%= @attend.patient.phone %> | <%= @attend.patient.phone2 %>
-    </p>
-
-    <p>
-      <strong><%= t('finalized') %>:</strong>
-      <%= human_boolean(@attend.finalized) %>
     </p>
     <p>
       <strong><%= t('exams') %>:</strong>

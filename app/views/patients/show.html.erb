@@ -102,3 +102,9 @@
   <strong><%= t('notes') %>:</strong>
   <%= @patient.notes %>
 </p>
+<div class="list-group">
+  <a href="#" class="list-group-item disabled"><strong>Atendimentos realizados</strong></a>
+  <% @patient.attends.each do |attend| %>
+  <%= link_to l(attend.schedule, format: '%A, %d de %B de %Y')+ ' ' + attend.clinic.fantasy_name, attend, class: 'list-group-item' %>
+  <% end %>
+</div><!-- /.list-group -->
