@@ -1,27 +1,65 @@
-<div class="list-group">
-	<a href="#" class="list-group-item disabled"><strong><%=l dia_selected, format: :long %></strong></a>
-	<%= apontamento("08:00") %>
-	<%= apontamento("08:10") %>
-	<%= apontamento("08:20") %>
-	<%= apontamento("08:30") %>
-	<%= apontamento("08:40") %>
-	<%= apontamento("08:50") %>
-	<%= apontamento("09:00") %>
-	<%= apontamento("09:10") %>
-	<%= apontamento("09:20") %>
-	<%= apontamento("09:30") %>
-	<%= apontamento("09:40") %>
-	<%= apontamento("09:50") %>
-	<%= apontamento("10:00") %>
-	<%= apontamento("10:10") %>
-	<%= apontamento("10:20") %>
-	<%= apontamento("10:30") %>
-	<%= apontamento("10:40") %>
-	<%= apontamento("10:50") %>
-	<%= apontamento("11:00") %>
-	<%= apontamento("11:10") %>
-	<%= apontamento("11:20") %>
-	<%= apontamento("11:30") %>
-	<%= apontamento("11:40") %>
-	<%= apontamento("11:50") %>
-</div><!-- /.list-group -->
+  <h2><%= l(dia_selected, format: '%A, %d de %B de %Y') %></h2>
+	<div class="row">
+		<div class="col-lg-6 col-md-6">
+			<div class="list-group">
+				<a href="#" class="list-group-item disabled"><strong>MANHÃ</strong></a>
+				<%= apontamento("08:00") %>
+				<%= apontamento("08:10") %>
+				<%= apontamento("08:20") %>
+				<%= apontamento("08:30") %>
+				<%= apontamento("08:40") %>
+				<%= apontamento("08:50") %>
+				<%= apontamento("09:00") %>
+				<%= apontamento("09:10") %>
+				<%= apontamento("09:20") %>
+				<%= apontamento("09:30") %>
+				<%= apontamento("09:40") %>
+				<%= apontamento("09:50") %>
+				<%= apontamento("10:00") %>
+				<%= apontamento("10:10") %>
+				<%= apontamento("10:20") %>
+				<%= apontamento("10:30") %>
+				<%= apontamento("10:40") %>
+				<%= apontamento("10:50") %>
+				<%= apontamento("11:00") %>
+				<%= apontamento("11:10") %>
+				<%= apontamento("11:20") %>
+				<%= apontamento("11:30") %>
+				<%= apontamento("11:40") %>
+				<%= apontamento("11:50") %>
+			</div><!-- /.list-group -->
+		</div><!-- /col -->
+		<div class="col-lg-6 col-md-6">
+			<div class="list-group">
+				<a href="#" class="list-group-item disabled"><strong>TARDE</strong></a>
+				<%= apontamento("13:30") %>
+				<%= apontamento("13:40") %>
+				<%= apontamento("13:50") %>
+				<%= apontamento("14:00") %>
+				<%= apontamento("14:10") %>
+				<%= apontamento("14:20") %>
+				<%= apontamento("14:30") %>
+				<%= apontamento("14:40") %>
+				<%= apontamento("14:50") %>
+				<%= apontamento("15:00") %>
+				<%= apontamento("15:10") %>
+				<%= apontamento("15:20") %>
+				<%= apontamento("15:30") %>
+				<%= apontamento("15:40") %>
+				<%= apontamento("15:50") %>
+				<%= apontamento("16:00") %>
+				<%= apontamento("16:10") %>
+				<%= apontamento("16:20") %>
+				<%= apontamento("16:30") %>
+				<%= apontamento("16:40") %>
+				<%= apontamento("16:50") %>
+				<%= apontamento("17:00") %>
+				<%= apontamento("17:10") %>
+				<%= apontamento("17:20") %>			
+				<%= apontamento("17:30") %>
+				<%= apontamento("17:40") %>
+				<%= apontamento("17:50") %>
+				<%= apontamento("18:00") %>
+			</div><!-- /.list-group -->	
+		</div>
+	</div><!-- /row -->

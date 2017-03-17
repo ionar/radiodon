@@ -13,7 +13,7 @@ module AttendsHelper
     consulta = @attends.find_by appointment: @hora
     if (consulta)
       if consulta.finalized == true
-        return link_to "<span class='glyphicon glyphicon-check'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem list-group-item-success"
+        return link_to "<span class='glyphicon glyphicon-check'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem list-group-item-info"
       else
         return link_to "<span class='glyphicon glyphicon-time'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem"      
       end

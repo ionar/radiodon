@@ -10,35 +10,32 @@
       </div>
     </div>
   </div><!-- /.row -->
-
-
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
+    <ul class="nav nav-tabs" role="tablist">      
       <li role="presentation" class="active"><a href="#diario" aria-controls="diario" role="tab" data-toggle="tab">Diário</a></li>
+      <li role="presentation"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
     </ul>
-
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane" id="semanal">
-        <div id="semanal_calendar">
-          <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
-        </div><!-- /semanal_calendar -->
-      </div><!-- /semanal -->
       <div role="tabpanel" class="tab-pane active" id="diario">
         <div class="row">
-          <div class="col-sm-6 col-xd-6">
+          <div class="col-sm-4 col-xd-4 col-lg-4 col-md-4">
             <div id="events_calendar">
               <%= render partial: "calendar_mensal", locals: {attends: @attends_todos} %>
             </div><!-- /events_calendar -->
           </div><!-- /col -->
-          <div class="col-sm-6 col-xd-6">
+          <div class="col-sm-8 col-xd-8 col-lg-8 col-md-8">
             <div id="lista-horarios">
               <%= render partial: "listagem", locals: {attends: @attends} %>
             </div><!-- /lista-horarios -->
           </div><!-- /col -->
         </div><!-- /row -->   
-      </div><!-- /tabpanel -->
+      </div><!-- /tabpanel -->    
+      <div role="tabpanel" class="tab-pane" id="semanal">
+        <div id="semanal_calendar">
+          <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
+        </div><!-- /semanal_calendar -->
+      </div><!-- /semanal -->      
     </div><!-- /tab-content -->
 
 <div class="modal fade" id="attend-modal"></div>
