@@ -23,8 +23,7 @@
       <%= f.input :notes, :label => t('notes') %>
       </div>
       <div class="tab-pane fade" id="adicionais">
-      <%= f.input :birth_date, :label => t('birth_date'), as: :date, start_year: Date.today.year - 90,
-                                end_year: Date.today.year - 1, discard_day: false, order: [:day, :month, :year] %>
+      <%= f.input :birth_date, :label => t('birth_date'), as: :date_picker %>
       <%= f.input :email, :label => t('email') %>
       <%= f.input :address, :label => t('address') %>
       <%= f.input :cep, :label => t('cep')%>
@@ -39,6 +38,7 @@
   </div>
 
 <div class="actions text-right">
+      <%= link_to 'Cancelar', :back, :class => 'btn btn-default' %>
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
         <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
       <% end %>

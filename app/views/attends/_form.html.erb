@@ -10,11 +10,12 @@
     <%= f.hidden_field :schedule, :label => t('schedule'), :as => :date_picker %>   
     <%= f.hidden_field :appointment, :label => t('appointment')  %>
     <%= f.association :requester, :label => t('requester'), prompt: t('select') %> 
-    <%= f.association :exam, :label => t('exams'), as: :check_boxes %>    
+    <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
     <%= f.input :notes, :label => t('notes') %>
     <%= f.input :finalized, :label => t('finalized')+"?" %>
   </div><!-- /form-inputs -->
   <div class="actions text-right">
+      <%= link_to 'Cancelar', :back, :class => 'btn btn-default' %>
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
         <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
       <% end %>

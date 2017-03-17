@@ -13,6 +13,7 @@
     <%= f.association :province, :label => t("province") %>
   </div>
   <div class="actions text-right">
+      <%= link_to 'Cancelar', :back, :class => 'btn btn-default' %>
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
         <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
       <% end %>

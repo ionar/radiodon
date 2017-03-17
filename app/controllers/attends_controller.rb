@@ -78,6 +78,10 @@ class AttendsController < ApplicationController
     @attend = Attend.new(attend_params)
     @attend.clinic_id = current_user.clinic_id
 
+    year_of_birth_date = @attend.patient.birth_date.strftime("%Y").to_i
+    year_of_today = Date.today.strftime("%Y").to_i
+    @attend.age = year_of_today - year_of_birth_date
+
     @attends_todos = Attend.where(nil)
     @attends_todos = @attends_todos.para_a_clinica(current_user.clinic_id)
 
@@ -101,8 +105,13 @@ class AttendsController < ApplicationController
   # PATCH/PUT /attends/1
   # PATCH/PUT /attends/1.json
   def update
+    year_of_birth_date = @attend.patient.birth_date.strftime("%Y").to_i
+    year_of_today = Date.today.strftime("%Y").to_i
+    @attend.age = year_of_today - year_of_birth_date
+
     respond_to do |format|
       if @attend.update(attend_params)
+
         format.html { redirect_to @attend, notice: t('update_success') }
         format.json { render :show, status: :ok, location: @attend }
       else
@@ -130,6 +139,6 @@ class AttendsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attend_params
-      params.require(:attend).permit(:clinic_id, :patient_id, :schedule, :appointment, :requester_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
+      params.require(:attend).permit(:clinic_id, :age, :patient_id, :schedule, :appointment, :requester_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
     end
 end
