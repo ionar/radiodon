@@ -12,10 +12,11 @@
       <span class="glyphicon glyphicon-print"></span> Imprimir <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li><a href="#">Folha de rosto</a></li>
-      <li><a href="#">Etiqueta</a></li>
+      <li><%= link_to 'Pasta - Folha de rosto', export_attend_path(@attend, :modelo => 'pasta-folha'), target: "_blank" %></li>
+      <li><%= link_to 'Pasta - Etiqueta', export_attend_path(@attend, :modelo => 'pasta-etiqueta'), target: "_blank" %></li>
       <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
+      <li><%= link_to 'Caixa - Normal', export_attend_path(@attend, :modelo => 'caixa-normal'), target: "_blank" %></li>
+      <li><%= link_to 'Caixa - Econômica', export_attend_path(@attend, :modelo => 'caixa-economica'), target: "_blank" %></li>
     </ul>
   </div>
   <!-- /dropdown imprimir -->

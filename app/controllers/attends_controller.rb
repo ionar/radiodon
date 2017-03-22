@@ -1,5 +1,8 @@
 class AttendsController < ApplicationController
-  before_action :set_attend, only: [:show, :edit, :update, :destroy]
+  before_action :set_attend, only: [:show, :edit, :update, :destroy, :export]
+
+   # Nós incluimos aqui a lib que vamos criar chamada generate_pdf.rb
+  require './lib/generate_pdf'
 
   def diasel
     #render text: "Action diasel"
@@ -128,6 +131,32 @@ class AttendsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to attends_url, notice: t('destroy_success') }
       format.json { head :no_content }
+    end
+  end
+
+    # Criamos este método que vai chamar nossa lib para gerar o PDF e depois redirecionar o user para o arquivo PDF
+  def export
+    #pasta-folha, pasta-etiqueta, caixa-normal, caixa-economica
+    modelo_etiqueta = params[:modelo]
+
+    modelo = case modelo_etiqueta
+    when "pasta-folha" then
+      ##GeneratePdf::attend_pasta_folha(@attend.schedule, @attend.appointment, @attend.patient.name)
+      GeneratePdf::attend_pasta_folha(@attend)
+      redirect_to '/attend.pdf'
+      puts "pasta-folha"
+    when "pasta-etiqueta" then
+      GeneratePdf::attend_pasta_etiqueta(@attend.schedule, @attend.appointment, @attend.patient.name)
+      redirect_to '/attend.pdf'
+      puts "pasta-etiqueta"
+    when "caixa-normal" then
+      GeneratePdf::attend(@attend.schedule, @attend.appointment, @attend.patient.name)
+      redirect_to '/attend.pdf'
+      puts "caixa-normal"
+    when "caixa-economica" then
+      GeneratePdf::attend(@attend.schedule, @attend.appointment, @attend.patient.name)
+      redirect_to '/attend.pdf'
+      puts "caixa-economica"      
     end
   end
 

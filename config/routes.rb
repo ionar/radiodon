@@ -3,8 +3,12 @@ Rails.application.routes.draw do
     get "delete"
   end
 
-  resources :attends
-  resources :attends
+  resources :attends do
+    member do
+      get 'export'
+    end
+  end
+
   resources :exams
   resources :patients
   resources :requesters
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :path_prefix => 'my'
   resources :users
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'prawn-rails'
 gem 'bootswatch-rails'
 
 gem 'ransack'
