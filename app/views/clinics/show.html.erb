@@ -18,54 +18,58 @@
       </div>
     </div>
   </div> <!-- /.row -->
-<p>
-  <strong>Fome Fantasia:</strong>
-  <%= @clinic.fantasy_name %>
-</p>
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <p>
+          <strong>Fome Fantasia:</strong>
+          <%= @clinic.fantasy_name %>
+        </p>
 
-<p>
-  <strong>Razão Social:</strong>
-  <%= @clinic.corporate_name %>
-</p>
-<p>
-  <strong>Fone:</strong>
-  <%= @clinic.phone %>
-</p>
-<p>
-  <strong>Cnpj:</strong>
-  <%= @clinic.cnpj %>
-</p>
+        <p>
+          <strong>Razão Social:</strong>
+          <%= @clinic.corporate_name %>
+        </p>
+        <p>
+          <strong>Fone:</strong>
+          <%= @clinic.phone %>
+        </p>
+        <p>
+          <strong>Cnpj:</strong>
+          <%= @clinic.cnpj %>
+        </p>
 
-<p>
-  <strong>Responsável Técnico:</strong>
-  <%= @clinic.technical_manager %>
-</p>
+        <p>
+          <strong>Responsável Técnico:</strong>
+          <%= @clinic.technical_manager %>
+        </p>
 
-<p>
-  <strong>Endereço:</strong>
-  <%= @clinic.address %>
-</p>
+        <p>
+          <strong>Endereço:</strong>
+          <%= @clinic.address %>
+        </p>
 
-<p>
-  <strong>Cep:</strong>
-  <%= @clinic.cep %>
-</p>
+        <p>
+          <strong>Cep:</strong>
+          <%= @clinic.cep %>
+        </p>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @clinic.city %>
-</p>
+        <p>
+          <strong>Cidade:</strong>
+          <%= @clinic.city %>
+        </p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @clinic.province.name %>
-</p>
+        <p>
+          <strong>Estado:</strong>
+          <%= @clinic.province.name %>
+        </p>
 
-<p>
-  <strong>Criado em:</strong>
-  <%=l @clinic.created_at, format: :long %>
-</p>
-<p>
-  <strong>Atualizado em:</strong>
-  <%=l @clinic.updated_at, format: :long %>
-</p>
+        <p>
+          <strong>Criado em:</strong>
+          <%=l @clinic.created_at, format: :long %>
+        </p>
+        <p>
+          <strong>Atualizado em:</strong>
+          <%=l @clinic.updated_at, format: :long %>
+        </p>
+      </div><!-- /panel-body -->
+    </div><!-- /panel -->

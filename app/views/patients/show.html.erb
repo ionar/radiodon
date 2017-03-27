@@ -18,90 +18,94 @@
       </div>
     </div>
   </div> <!-- /.row -->
-<p>
-  <strong><%= t('filial') %>:</strong>
-  <%= @patient.filial %>
-</p>
-<p>
-  <strong><%= t('name') %>:</strong>
-  <%= @patient.name %>
-</p>
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <p>
+          <strong><%= t('filial') %>:</strong>
+          <%= @patient.filial %>
+        </p>
+        <p>
+          <strong><%= t('name') %>:</strong>
+          <%= @patient.name %>
+        </p>
 
-<p>
-  <strong><%= t('cpf') %>:</strong>
-  <%= @patient.cpf %>
-</p>
+        <p>
+          <strong><%= t('cpf') %>:</strong>
+          <%= @patient.cpf %>
+        </p>
 
-<p>
-  <strong><%= t('rg') %>:</strong>
-  <%= @patient.rg %>
-</p>
+        <p>
+          <strong><%= t('rg') %>:</strong>
+          <%= @patient.rg %>
+        </p>
 
-<p>
-  <strong><%= t('gender') %>:</strong>
-  <%= @patient.gender %>
-</p>
+        <p>
+          <strong><%= t('gender') %>:</strong>
+          <%= @patient.gender %>
+        </p>
 
-<p>
-  <strong><%= t('birth_date') %>:</strong>
-  <%=l @patient.birth_date, format: :long %>
-</p>
-<p>
-  <strong><%= t('age') %>:</strong>
-  <%= time_ago_in_words(@patient.birth_date) %>
-</p>
+        <p>
+          <strong><%= t('birth_date') %>:</strong>
+          <%=l @patient.birth_date, format: :long %>
+        </p>
+        <p>
+          <strong><%= t('age') %>:</strong>
+          <%= time_ago_in_words(@patient.birth_date) %>
+        </p>
 
-<p>
-  <strong><%= t('email') %>:</strong>
-  <%= @patient.email %>
-</p>
+        <p>
+          <strong><%= t('email') %>:</strong>
+          <%= @patient.email %>
+        </p>
 
-<p>
-  <strong><%= t('address') %>:</strong>
-  <%= @patient.address %>
-</p>
+        <p>
+          <strong><%= t('address') %>:</strong>
+          <%= @patient.address %>
+        </p>
 
-<p>
-  <strong><%= t('cep') %>:</strong>
-  <%= @patient.cep %>
-</p>
-<p>
-  <strong><%= t('city') %>:</strong>
-  <%= @patient.city %>
-</p>
-<p>
-  <strong><%= t('province') %>:</strong>
-  <%= @patient.province.acronym %>
-</p>
-<p>
-  <strong><%= t('phone') %>:</strong>
-  <%= @patient.phone %>
-</p>
+        <p>
+          <strong><%= t('cep') %>:</strong>
+          <%= @patient.cep %>
+        </p>
+        <p>
+          <strong><%= t('city') %>:</strong>
+          <%= @patient.city %>
+        </p>
+        <p>
+          <strong><%= t('province') %>:</strong>
+          <%= @patient.province.acronym %>
+        </p>
+        <p>
+          <strong><%= t('phone') %>:</strong>
+          <%= @patient.phone %>
+        </p>
 
-<p>
-  <strong><%= t('phone') %> 2:</strong>
-  <%= @patient.phone2 %>
-</p>
+        <p>
+          <strong><%= t('phone') %> 2:</strong>
+          <%= @patient.phone2 %>
+        </p>
 
-<p>
-  <strong><%= t('occupation') %>:</strong>
-  <%= @patient.occupation %>
-</p>
+        <p>
+          <strong><%= t('occupation') %>:</strong>
+          <%= @patient.occupation %>
+        </p>
 
-<p>
-  <strong><%= t('mothers_name') %>:</strong>
-  <%= @patient.mothers_name %>
-</p>
+        <p>
+          <strong><%= t('mothers_name') %>:</strong>
+          <%= @patient.mothers_name %>
+        </p>
 
-<p>
-  <strong><%= t('fathers_name') %>:</strong>
-  <%= @patient.fathers_name %>
-</p>
+        <p>
+          <strong><%= t('fathers_name') %>:</strong>
+          <%= @patient.fathers_name %>
+        </p>
 
-<p>
-  <strong><%= t('notes') %>:</strong>
-  <%= @patient.notes %>
-</p>
+        <p>
+          <strong><%= t('notes') %>:</strong>
+          <%= @patient.notes %>
+        </p>
+      </div><!-- /panel-body -->
+    </div><!-- /panel -->
 <div class="list-group">
   <a href="#" class="list-group-item disabled"><strong>Atendimentos realizados</strong></a>
   <% @patient.attends.each do |attend| %>

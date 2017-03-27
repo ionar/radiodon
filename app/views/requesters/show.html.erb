@@ -18,36 +18,40 @@
       </div>
     </div>
   </div> <!-- /.row -->
-<p>
-  <strong><%= t("name") %>:</strong>
-  <%= @requester.name %>
-</p>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>
+            <strong><%= t("name") %>:</strong>
+            <%= @requester.name %>
+          </p>
 
-<p>
-  <strong><%= t("register") %>:</strong>
-  <%= @requester.register %>
-</p>
+          <p>
+            <strong><%= t("register") %>:</strong>
+            <%= @requester.register %>
+          </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @requester.email %>
-</p>
+          <p>
+            <strong>Email:</strong>
+            <%= @requester.email %>
+          </p>
 
-<p>
-  <strong><%= t("phone") %>:</strong>
-  <%= @requester.phone %>
-</p>
+          <p>
+            <strong><%= t("phone") %>:</strong>
+            <%= @requester.phone %>
+          </p>
 
-<p>
-  <strong><%= t("notes") %>:</strong>
-  <%= @requester.notes %>
-</p>
+          <p>
+            <strong><%= t("notes") %>:</strong>
+            <%= @requester.notes %>
+          </p>
 
-<p>
-  <strong>Criado em:</strong>
-  <%=l @requester.created_at, format: :long %>
-</p>
-<p>
-  <strong>Atualizado em:</strong>
-  <%=l @requester.updated_at, format: :long %>
-</p>
+          <p>
+            <strong>Criado em:</strong>
+            <%=l @requester.created_at, format: :long %>
+          </p>
+          <p>
+            <strong>Atualizado em:</strong>
+            <%=l @requester.updated_at, format: :long %>
+          </p>
+        </div><!-- /panel-body -->
+    </div><!-- /panel -->

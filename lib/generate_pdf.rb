@@ -107,14 +107,12 @@ module GeneratePdf
 			pdf.font_size 12
 			pdf.fill_color "333333"
 			pdf.font "Helvetica"
-			pdf.text "#{attend.schedule.strftime("%d/%m/%Y")}"
-			pdf.text "#{attend.age}"
-			pdf.text "#{attend.patient.gender}"
-			pdf.text "#{attend.patient.name}"
+			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true			
+			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
+			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
+			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
 			pdf.move_down 10
-			pdf.text "#{attend.requester.name}"
-			pdf.move_down 10
-			pdf.text "#{attend.notes}"
+			pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
 			pdf.render_file('public/caixa-normal.pdf')
 		end
 	end	
@@ -124,14 +122,12 @@ module GeneratePdf
 			pdf.font_size 12
 			pdf.fill_color "333333"
 			pdf.font "Helvetica"
-			pdf.text "#{attend.schedule.strftime("%d/%m/%Y")}"
-			pdf.text "#{attend.age}"
-			pdf.text "#{attend.patient.gender}"
-			pdf.text "#{attend.patient.name}"
+			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true			
+			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
+			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
+			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
 			pdf.move_down 10
-			pdf.text "#{attend.requester.name}"
-			pdf.move_down 10
-			pdf.text "#{attend.notes}"
+			pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
 			pdf.render_file('public/caixa-economica.pdf')
 		end
 	end
