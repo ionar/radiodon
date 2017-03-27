@@ -143,19 +143,19 @@ class AttendsController < ApplicationController
     when "pasta-folha" then
       ##GeneratePdf::attend_pasta_folha(@attend.schedule, @attend.appointment, @attend.patient.name)
       GeneratePdf::attend_pasta_folha(@attend)
-      redirect_to '/attend.pdf'
+      redirect_to '/pasta-folha.pdf'
       puts "pasta-folha"
     when "pasta-etiqueta" then
-      GeneratePdf::attend_pasta_etiqueta(@attend.schedule, @attend.appointment, @attend.patient.name)
-      redirect_to '/attend.pdf'
+      GeneratePdf::attend_pasta_etiqueta(@attend)
+      redirect_to '/pasta-etiqueta.pdf'
       puts "pasta-etiqueta"
     when "caixa-normal" then
-      GeneratePdf::attend(@attend.schedule, @attend.appointment, @attend.patient.name)
-      redirect_to '/attend.pdf'
+      GeneratePdf::attend_caixa_normal(@attend)
+      redirect_to '/caixa-normal.pdf'
       puts "caixa-normal"
     when "caixa-economica" then
-      GeneratePdf::attend(@attend.schedule, @attend.appointment, @attend.patient.name)
-      redirect_to '/attend.pdf'
+      GeneratePdf::attend_caixa_economica(@attend)
+      redirect_to '/caixa-economica.pdf'
       puts "caixa-economica"      
     end
   end
