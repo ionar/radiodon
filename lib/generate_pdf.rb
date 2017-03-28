@@ -6,7 +6,7 @@ module GeneratePdf
 		# Define o formato do layout como portrait (poderia ser landscape)
 		:page_layout => :portrait,
 		# Define a margem do documento
-		:margin      => [40, 75]
+		:margin      => [100, 75]
 	}
 	PDF_OPTIONS_PASTA_ETIQUETA = {
 		# Escolhe o Page size como uma folha A4
@@ -45,8 +45,8 @@ module GeneratePdf
 			# Define a cor do traçado
 			pdf.fill_color "333333"
 			pdf.font "Helvetica"
-			pdf.image "public/logo-export.png", :scale => 0.06
-			pdf.move_down 20
+			#pdf.image "public/logo-export.png", :scale => 0.06
+			pdf.move_down 100
 			pdf.text "Nome: <b>#{attend.patient.name}</b>", inline_format: true
 			pdf.move_down 10
 			pdf.text "Gênero: <b>#{attend.patient.gender}</b>", inline_format: true
@@ -96,8 +96,8 @@ module GeneratePdf
 			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
 			pdf.move_down 10
 			pdf.text "Data: <b>#{attend.created_at.strftime("%d/%m/%Y")}</b>", inline_format: true
-			pdf.move_down 10
-			pdf.text "Fone: <b>#{attend.patient.phone}</b>", inline_format: true
+			##pdf.move_down 10
+			##pdf.text "Fone: <b>#{attend.patient.phone}</b>", inline_format: true
 			pdf.render_file('public/pasta-etiqueta.pdf')
 		end
 	end
@@ -111,8 +111,8 @@ module GeneratePdf
 			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
 			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
 			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
-			pdf.move_down 10
-			pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
+			##pdf.move_down 10
+			##pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
 			pdf.render_file('public/caixa-normal.pdf')
 		end
 	end	
@@ -126,8 +126,8 @@ module GeneratePdf
 			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
 			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
 			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
-			pdf.move_down 10
-			pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
+			##pdf.move_down 10
+			##pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
 			pdf.render_file('public/caixa-economica.pdf')
 		end
 	end
