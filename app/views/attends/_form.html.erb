@@ -7,8 +7,10 @@
       <% end %>
     </div>
     <%= f.hidden_field :patient_id, :label => t('patient') %> 
-    <%= f.hidden_field :schedule, :label => t('schedule'), :as => :date_picker %>   
-    <%= f.hidden_field :appointment, :label => t('appointment')  %>
+    <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
+    <%= f.input :appointment, :label => t('appointment'), :as => :time_picker, :hint => "De 15 em 15 minutos dentro do horário de atendimento"  %>
+
+
     <%= f.association :requester, :label => t('requester'), prompt: t('select') %> 
     <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
     <%= f.input :notes, :label => t('notes') %>

@@ -1,9 +1,9 @@
 <%= week_calendar events: attends, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |data, attends| %>
-<small>
+
 	<% attends.each do |attend| %>
-		<%= link_to attend, :class => "list-group-item", :remote => true do %>
-			<span class="badge"><%= attend.appointment.strftime("%H:%M") %></span><%= attend.patient.name %>
+		<%= link_to attend, :class => "list-group-item small", :remote => true do %>
+			<b><%= attend.appointment.strftime("%H:%M") %></b> - <%= attend.patient.name %>
 		<% end %>
 	<% end %>
-</small>
+
 <% end %>

@@ -9,19 +9,44 @@ module AttendsHelper
   end
 
   def apontamento(hora)
-    @hora = hora
-    consulta = @attends.find_by appointment: @hora
-    if (consulta)
-      if consulta.finalized == true
-        return link_to "<span class='glyphicon glyphicon-check'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem list-group-item-info"
-      else
-        return link_to "<span class='glyphicon glyphicon-time'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem"      
+    hora = hora
+    @atendimentos = @attends.where appointment: hora
+    if (@atendimentos.length != 0)
+      concatenada = ""
+      @atendimentos.each do |consulta|
+        if consulta.finalized == true
+          concatenada << link_to("<span class='glyphicon glyphicon-check'></span> #{consulta.patient.name}".html_safe, consulta, class: "btn btn-success btn-xs margem-btn")
+        else
+          concatenada << link_to("<span class='glyphicon glyphicon-time'></span> #{consulta.patient.name}".html_safe, consulta, class: "btn btn-warning btn-xs margem-btn")
+        end
+        concatenada << " "        
       end
+      ##Mostrar botao para adicionar mais um agendamento para o mesmo horario
+      concatenada << link_to("<span class='glyphicon glyphicon-plus'></span>".html_safe, new_attend_path(:dia => dia_selected, :hora => hora), class: "btn btn-primary btn-xs margem-btn")
       
+      return  "<span class='badge'>#{hora}</span> #{concatenada}".html_safe
+
+      ##return "aqui tem #{@atendimentos.length} - #{concatenada}".html_safe + " <span class='badge'>#{hora}</span>".html_safe
     else
-      return link_to "<span class='glyphicon glyphicon-calendar'></span> <span class='badge'>#{@hora}</span> ...".html_safe, new_attend_path(:dia => dia_selected, :hora => @hora), :class => "list-group-item list-group-item-action links-listagem"
+      return link_to("<span class='glyphicon glyphicon-calendar'></span>  <span class='glyphicon glyphicon-plus'></span>".html_safe, new_attend_path(:dia => dia_selected, :hora => hora), class: "btn btn-primary btn-xs") + " <span class='badge'>#{hora}</span>".html_safe
     end
   end
+
+  #def apontamento(hora)
+  #  @hora = hora
+  #  consulta = @attends.find_by appointment: @hora
+  #  if (consulta)
+  #    if consulta.finalized == true
+  #      return link_to "<span class='glyphicon glyphicon-check'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem list-group-item-info"
+  #    else
+  #      return link_to "<span class='glyphicon glyphicon-time'></span> <span class='badge'>#{@hora}</span> #{consulta.patient.name}".html_safe, consulta, :class => "list-group-item list-group-item-action links-listagem"      
+  #    end
+  #    
+  #  else
+  #    return link_to "<span class='glyphicon glyphicon-calendar'></span> <span class='badge'>#{@hora}</span> ...".html_safe, new_attend_path(:dia => dia_selected, :hora => @hora), :class => "list-group-item list-group-item-action links-listagem"
+  #  end
+  #end
+
 
 
 	 def myclinic
