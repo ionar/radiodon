@@ -12,10 +12,27 @@
       </div>
     </div>
   </div> <!-- /.row -->
+  <div class="row">
+  <div class="col-lg-12">
+    <%= search_form_for @q do |f| %>
+      <div class="input-group">
+        <%= f.search_field :name_cont, :class => 'form-control', :placeholder => 'Buscar por...' %>
+        <span class="input-group-btn">
+          <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+            Buscar
+          <% end %>
+        </span>
+      </div><!-- /input-group -->
+    <% end %>
+  </div><!-- /.col-lg-12 -->
+</div> <!-- /.row -->
+
+<%= paginate @requesters,  window: 2 %><br>
+        <small><%= page_entries_info @requesters %></small>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= t("name") %></th>
+      <th><%= sort_link(@q, :name, remote: true) %></th>
       <th><%= t("register") %></th>
       <th><%= t("email") %></th>
       <th><%= t("phone") %></th>

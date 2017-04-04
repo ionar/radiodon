@@ -4,7 +4,14 @@ class RequestersController < ApplicationController
   # GET /requester
   # GET /requester.json
   def index
-    @requesters = Requester.all
+   ## @requesters = Requester.all
+
+    ##@requesters = Requester.order("name").page(params['page']).per(20)
+
+    @q = Requester.ransack(params[:q])
+    @q.sorts = 'name' if @q.sorts.empty?
+    @requesters = @q.result.page(params['page']).per(10)
+
   end
 
   # GET /requester/1
