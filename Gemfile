@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "paperclip", "~> 5.0.0"
+
 gem "select2-rails"
 
 gem 'prawn-rails'

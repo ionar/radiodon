@@ -7,10 +7,16 @@
       <% end %>
     </div>
     <%= f.hidden_field :patient_id %> 
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= image_tag @attend.avatar.url(:thumb), :class => "img-thumbnail" if @attend.avatar.exists? %>
+        <%= f.input :avatar, :label => t('avatar'), as: :file %>
+      </div><!-- /panel-body -->
+    </div><!-- /panel -->
+
     <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
     <%= f.input :appointment, :label => t('appointment'), :as => :time_picker, :hint => "De 15 em 15 minutos dentro do horário de atendimento"  %>
-
-
     <%= f.association :requester, :label => t('requester'), prompt: t('select'), :id => "select-search", collection: Requester.order('name ASC') %> 
     <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
     <%= f.input :notes, :label => t('notes') %>

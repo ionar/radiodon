@@ -6,6 +6,9 @@ class Attend < ActiveRecord::Base
 
   validates :requester_id, :clinic_id, :appointment, :schedule, presence: true
 
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "sem-imagem.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   default_scope { order(appointment: :asc) }
 
   scope :para_o_dia, -> (dia) { where schedule: dia }

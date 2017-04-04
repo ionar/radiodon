@@ -168,6 +168,6 @@ class AttendsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attend_params
-      params.require(:attend).permit(:clinic_id, :age, :patient_id, :schedule, :appointment, :requester_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
+      params.require(:attend).permit(:avatar, :clinic_id, :age, :patient_id, :schedule, :appointment, :requester_id, :notes, :discount, :total, :payment_detail, :finalized, :missed, :exam_ids => [])
     end
-end
+end 
