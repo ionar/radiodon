@@ -19,6 +19,7 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require moment/pt-br
+//= require select2
 
 //= require_tree .
 
@@ -26,4 +27,8 @@ $(document).on("turbolinks:load", function() {
 	$('.link-paciente-selecao').click(function() {
 		alert("clicado!");
 	});
+
+    $("#attend_requester_id").select2({
+    	theme: "bootstrap"
+    });
  });
