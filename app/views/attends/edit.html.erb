@@ -17,11 +17,11 @@
   </div> <!-- /.row -->
   <div class="panel panel-default">
     <div class="panel-body">
-      <span>Nome Completo: </span><span id="attend_patient_name" class="panel-patient"><%= @attend.patient.name %></span><br>
-      <span>CPF: </span><span id="attend_patient_cpf" class="panel-patient"><%= @attend.patient.cpf %></span><br>
-      <span>Endereço: </span><span id="attend_patient_endereco" class="panel-patient"><%= @attend.patient.address %></span><br>
-      <span>Cidade/UF: </span><span id="attend_patient_cidade" class="panel-patient"><%= @attend.patient.city %> / <%= @attend.patient.province.acronym %></span><br>
-      <span>Nascimento: </span><span id="attend_patient_nascimento" class="panel-patient"><%= @attend.patient.birth_date.strftime("%d/%m/%Y") %></span><br>
+      <span>Nome Completo: </span><span id="attend_patient_name" class="panel-patient"><%= @attend.patient.name if @attend.patient.present? %></span><br>
+      <span>CPF: </span><span id="attend_patient_cpf" class="panel-patient"><%= @attend.patient.cpf if @attend.patient.present?%></span><br>
+      <span>Endereço: </span><span id="attend_patient_endereco" class="panel-patient"><%= @attend.patient.address if @attend.patient.present? %></span><br>
+      <span>Cidade/UF: </span><span id="attend_patient_cidade" class="panel-patient"><%= @attend.patient.city if @attend.patient.present?%> / <%= @attend.patient.province.acronym if @attend.patient.present?%></span><br>
+      <span>Nascimento: </span><span id="attend_patient_nascimento" class="panel-patient"><%= @attend.patient.birth_date.strftime("%d/%m/%Y") if @attend.patient.present? %></span><br>
     </div><!-- /panel-body -->
   </div><!-- /panel -->
 <%= render 'form' %>

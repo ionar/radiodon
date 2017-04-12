@@ -109,6 +109,10 @@
 <div class="list-group">
   <a href="#" class="list-group-item disabled"><strong>Atendimentos realizados</strong></a>
   <% @patient.attends.each do |attend| %>
-  <%= link_to l(attend.schedule, format: '%A, %d de %B de %Y')+ ' ' + attend.clinic.fantasy_name, attend, class: 'list-group-item' %>
+  <% lista_exames = '' %>
+  <% attend.exam.each do |exame| 
+     lista_exames << exame.name + " "
+  end %>
+  <%= link_to l(attend.schedule, format: '%A, %d de %B de %Y') + ' ' + attend.appointment.strftime("%H:%M") + ' - (' + lista_exames + ') - ' + attend.requester.name + ' - ' + attend.clinic.fantasy_name, attend, class: 'list-group-item' %>
   <% end %>
 </div><!-- /.list-group -->

@@ -4,15 +4,18 @@ class Attend < ActiveRecord::Base
   belongs_to :requester
   has_and_belongs_to_many :exam
 
-  validates :requester_id, :clinic_id, :appointment, :schedule, presence: true
+  validates :requester_id, :clinic_id, :appointment, :schedule, :descriptive, presence: true
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "sem-imagem.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  #validates_attachment_size :avatar, size: { in: 0..10.kilobytes }
 
-  default_scope { order(appointment: :asc) }
+  ##default_scope { order(appointment: :asc) }
 
   scope :para_o_dia, -> (dia) { where schedule: dia }
   scope :para_a_clinica, -> (clinica) { where clinic_id: clinica }
+  scope :quais, -> (selecionadas) { where id: selecionadas }
+
 
   #scope :four_last, -> { order("products.updated_at DESC LIMIT 4") }
 

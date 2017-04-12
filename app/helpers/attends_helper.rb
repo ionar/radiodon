@@ -15,9 +15,9 @@ module AttendsHelper
       concatenada = ""
       @atendimentos.each do |consulta|
         if consulta.finalized == true
-          concatenada << link_to("<span class='glyphicon glyphicon-check'></span> #{consulta.patient.name}".html_safe, consulta, class: "btn btn-success btn-xs margem-btn")
+          concatenada << link_to("<span class='glyphicon glyphicon-check'></span> #{consulta.descriptive}".html_safe, consulta, class: "btn btn-success btn-xs margem-btn")
         else
-          concatenada << link_to("<span class='glyphicon glyphicon-time'></span> #{consulta.patient.name}".html_safe, consulta, class: "btn btn-warning btn-xs margem-btn")
+          concatenada << link_to("<span class='glyphicon glyphicon-time'></span> #{consulta.descriptive}".html_safe, consulta, class: "btn btn-warning btn-xs margem-btn")
         end
         concatenada << " "        
       end

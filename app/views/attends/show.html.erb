@@ -47,14 +47,20 @@
           <%= @attend.appointment.strftime("%H:%M") %>
         </p>   
         <p>
+          <strong><%= t('descriptive') %>:</strong>
+          <%= @attend.descriptive %>
+        </p>        
+
+<% if @attend.patient.present? %>
+        <p>
           <strong><%= t('patient') %>:</strong>
-          <%= @attend.patient.name %> - <strong><%= t('gender') %>:</strong> <%= @attend.patient.gender %> <%= link_to '[Atualizar cadastro]', edit_patient_path(@attend.patient) %>
+            <%= @attend.patient.name %> - <strong><%= t('gender') %>:</strong> <%= @attend.patient.gender %>
         </p>
         <p>
           <strong><%= t('birth_date') %>:</strong>
-          <%= @attend.patient.birth_date.strftime("%d/%m/%Y") %>
-          <strong><%= t('age') %>:</strong>
-          <%= @attend.age %>
+            <%= @attend.patient.birth_date.strftime("%d/%m/%Y") %>
+            <strong><%= t('age') %>:</strong>
+            <%= @attend.age %>
         </p>       
         <p>
           <strong><%= t('rg') %>:</strong>
@@ -74,6 +80,13 @@
           <strong><%= t('phone') %>:</strong>
           <%= @attend.patient.phone %> | <%= @attend.patient.phone2 %>
         </p>
+<% else %>
+
+      <p>
+       <strong><%= t('patient') %>:</strong>
+       Atendimento não vinculado ao cadastro de pacientes. [<%= link_to "Vincular ", edit_attend_path(@attend) %>]
+      </p>
+<% end %>        
         <p>
           <strong><%= t('exams') %>:</strong>
           <ul>

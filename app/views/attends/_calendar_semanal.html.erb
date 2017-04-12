@@ -2,7 +2,7 @@
 
 	<% attends.each do |attend| %>
 		<%= link_to attend, :class => "list-group-item small" do %>
-			<b><%= attend.appointment.strftime("%H:%M") %></b> - <%= attend.patient.name %>
+			<b><%= attend.appointment.strftime("%H:%M") %></b> - <%= attend.descriptive %>
 		<% end %>
 	<% end %>
 

@@ -104,10 +104,13 @@ module GeneratePdf
 	def self.attend_caixa_normal attend
 		Prawn::Document.new(PDF_OPTIONS_CAIXA_NORMAL) do |pdf|
 			# Define a cor do traçado
-			pdf.font_size 12
+			# :at => [0,170]			
+			pdf.font_size 10
+			#pdf.text_box "teste", :at => [10,10], :width => 100
 			pdf.fill_color "333333"
 			pdf.font "Helvetica"
-			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true			
+			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true	
+			pdf.image attend.avatar.path(:original), :width => 70, :position => :left if attend.avatar.exists?		
 			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
 			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
 			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404193046) do
+ActiveRecord::Schema.define(version: 20170412140046) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",           limit: 4
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170404193046) do
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
+    t.string   "descriptive",         limit: 255
   end
 
   add_index "attends", ["clinic_id"], name: "index_attends_on_clinic_id", using: :btree

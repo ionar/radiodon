@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get "/qual_dia" => 'attends#diasel', as: 'qual_dia'
 
+  get "/etiquetas" => 'attends#etiquetas'
+  get "/print" => 'attends#print'
 
   devise_for :users, :path_prefix => 'my'
   resources :users

@@ -1,0 +1,16 @@
+<% @teste.each do |key, array| %>
+
+<%= array %>
+
+<% end %>
+
+<hr>
+
+<% @attends_selected.each_with_index do |attend, index| %>
+<%= index %> - <%= attend.schedule %> - <%= attend.id %>
+<br>
+
+<% end %>
+
+
+
