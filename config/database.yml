@@ -50,7 +50,7 @@ test:
 production:
   <<: *default
   database: radiodontica3_production
-  username: root
+  username: suporte
   host: <%= ENV['RADIODONTICA3_DATABASE_HOST'] %>
   password: <%= ENV['RADIODONTICA3_DATABASE_PASSWORD'] %>
   #socket: /var/lib/mysql/mysql.sock
