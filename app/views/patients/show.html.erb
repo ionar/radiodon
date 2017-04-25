@@ -46,11 +46,11 @@
 
         <p>
           <strong><%= t('birth_date') %>:</strong>
-          <%=l @patient.birth_date, format: :long if @patient.birth_date.present?%>
+          <%=l @patient.birth_date, format: :long if @patient.birth_date.present? %>
         </p>
         <p>
           <strong><%= t('age') %>:</strong>
-          <%= time_ago_in_words(@patient.birth_date) %>
+          <%= time_ago_in_words(@patient.birth_date) if @patient.birth_date.present? %>
         </p>
 
         <p>
