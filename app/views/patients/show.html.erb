@@ -7,13 +7,13 @@
         <h2>
           <%= link_to patients_path, :class => 'btn btn-primary' do %>
             <span class="glyphicon glyphicon-chevron-left"></span> Voltar
-          <% end %> 
+          <% end %>
           <%= link_to edit_patient_path(@patient), :class => 'btn btn-success' do %>
             <span class="glyphicon glyphicon-list-alt"></span> Editar
-          <% end %> 
+          <% end %>
           <%= link_to patient_path(@patient), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
             <span class="glyphicon glyphicon-remove"></span> Apagar
-          <% end %> 
+          <% end %>
         </h2>
       </div>
     </div>
@@ -73,7 +73,7 @@
         </p>
         <p>
           <strong><%= t('province') %>:</strong>
-          <%= @patient.province.acronym %>
+          <%= @patient.province %>
         </p>
         <p>
           <strong><%= t('phone') %>:</strong>
@@ -110,7 +110,7 @@
   <a href="#" class="list-group-item disabled"><strong>Atendimentos realizados</strong></a>
   <% @patient.attends.each do |attend| %>
   <% lista_exames = '' %>
-  <% attend.exam.each do |exame| 
+  <% attend.exam.each do |exame|
      lista_exames << exame.name + " "
   end %>
   <%= link_to l(attend.schedule, format: '%A, %d de %B de %Y') + ' ' + attend.appointment.strftime("%H:%M") + ' - (' + lista_exames + ') - ' + attend.requester.name + ' - ' + attend.clinic.fantasy_name, attend, class: 'list-group-item' %>

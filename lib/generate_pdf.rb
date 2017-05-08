@@ -11,7 +11,7 @@ module GeneratePdf
 	PDF_OPTIONS_PASTA_ETIQUETA = {
 		# Escolhe o Page size como uma folha A4
 		#1 mm in PDF Points: 2.834645669291339 pt
-		:page_size   => [254,127], 
+		:page_size   => [254,127],
 		# Define o formato do layout como portrait (poderia ser landscape)
 		:page_layout => :portrait,
 		# Define a margem do documento
@@ -57,7 +57,7 @@ module GeneratePdf
 			pdf.move_down 10
 			pdf.text "CPF: <b>#{attend.patient.cpf}</b>", inline_format: true
 			pdf.move_down 10
-			pdf.text "RG: <b>#{attend.patient.rg}</b>", inline_format: true			
+			pdf.text "RG: <b>#{attend.patient.rg}</b>", inline_format: true
 			pdf.move_down 10
 			pdf.text "Email: <b>#{attend.patient.email}</b>", inline_format: true
 			pdf.move_down 10
@@ -65,13 +65,13 @@ module GeneratePdf
 			pdf.move_down 10
 			pdf.text "CEP: <b>#{attend.patient.cep}</b>", inline_format: true
 			pdf.move_down 10
-			pdf.text "Cidade/Estado: <b>#{attend.patient.city}, #{attend.patient.province.acronym}</b>", inline_format: true
+			pdf.text "Cidade/Estado: <b>#{attend.patient.city}, #{attend.patient.province}</b>", inline_format: true
 			pdf.move_down 10
 			pdf.text "Fone: <b>#{attend.patient.phone}</b>", inline_format: true
 			pdf.move_down 10
 			pdf.text "Fone: <b>#{attend.patient.phone2}</b>", inline_format: true
 			pdf.move_down 10
-			pdf.text "Profissão: <b>#{attend.patient.occupation}</b>", inline_format: true			
+			pdf.text "Profissão: <b>#{attend.patient.occupation}</b>", inline_format: true
 			pdf.move_down 10
 			pdf.text "Nome da mãe: <b>#{attend.patient.mothers_name}</b>", inline_format: true
 			pdf.move_down 10
@@ -104,13 +104,13 @@ module GeneratePdf
 	def self.attend_caixa_normal attend
 		Prawn::Document.new(PDF_OPTIONS_CAIXA_NORMAL) do |pdf|
 			# Define a cor do traçado
-			# :at => [0,170]			
+			# :at => [0,170]
 			pdf.font_size 10
 			#pdf.text_box "teste", :at => [10,10], :width => 100
 			pdf.fill_color "333333"
 			pdf.font "Helvetica"
-			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true	
-			pdf.image attend.avatar.path(:original), :width => 70, :position => :left if attend.avatar.exists?		
+			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true
+			pdf.image attend.avatar.path(:original), :width => 70, :position => :left if attend.avatar.exists?
 			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
 			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
 			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
@@ -118,14 +118,14 @@ module GeneratePdf
 			##pdf.text "Observações: <b>#{attend.notes}</b>", inline_format: true
 			pdf.render_file('public/caixa-normal.pdf')
 		end
-	end	
+	end
 	def self.attend_caixa_economica attend
 		Prawn::Document.new(PDF_OPTIONS_CAIXA_ECONOMICA) do |pdf|
 			# Define a cor do traçado
 			pdf.font_size 12
 			pdf.fill_color "333333"
 			pdf.font "Helvetica"
-			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true			
+			pdf.text "Paciente: <b>#{attend.patient.name}</b>", inline_format: true
 			pdf.text "Data do exame: <b>#{attend.schedule.strftime("%d/%m/%Y")}</b>", inline_format: true
 			pdf.text "Idade: <b>#{attend.age} anos</b> Sexo: <b>#{attend.patient.gender}</b>", inline_format: true
 			pdf.text "Requisitante: <b>#{attend.requester.name}</b>", inline_format: true
@@ -149,4 +149,4 @@ end
 			# Muda de font para Helvetica
 			##pdf.text "Single line on 20 using the :size option.", :size => 20
 			# Cria um texto com tamanho 30 PDF Points, bold alinha no centro
-			##pdf.text "Nome: #{name}", :size => 32, :style => :bold, :align => :center			
+			##pdf.text "Nome: #{name}", :size => 32, :style => :bold, :align => :center

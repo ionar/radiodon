@@ -24,10 +24,10 @@
   <!-- /dropdown imprimir -->
   <%= link_to edit_attend_path(@attend), :class => 'btn btn-success' do %>
     <span class="glyphicon glyphicon-list-alt"></span> Editar
-  <% end %> 
+  <% end %>
   <%= link_to attend_path(@attend), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
     <span class="glyphicon glyphicon-remove"></span> Apagar
-  <% end %> 
+  <% end %>
         </h2>
       </div>
     </div>
@@ -45,11 +45,11 @@
           <%=l @attend.schedule, format: :long %>
           <strong><%= t('appointment') %>:</strong>
           <%= @attend.appointment.strftime("%H:%M") %>
-        </p>   
+        </p>
         <p>
           <strong><%= t('descriptive') %>:</strong>
           <%= @attend.descriptive %>
-        </p>        
+        </p>
 
 <% if @attend.patient.present? %>
         <p>
@@ -61,21 +61,21 @@
             <%= @attend.patient.birth_date.strftime("%d/%m/%Y") %>
             <strong><%= t('age') %>:</strong>
             <%= @attend.age %>
-        </p>       
+        </p>
         <p>
           <strong><%= t('rg') %>:</strong>
           <%= @attend.patient.rg %> <strong><%= t('cpf') %>:</strong>
           <%= @attend.patient.cpf %>
-        </p>                   
+        </p>
         <p>
           <strong><%= t('address') %>:</strong>
-          <%= @attend.patient.address %> <%= @attend.patient.city %> <%= @attend.patient.province.acronym %>
-        </p>          
+          <%= @attend.patient.address %> <%= @attend.patient.city %> <strong><%= t('province') %>:</strong><%= @attend.patient.province %>
+        </p>
         <p>
           <strong><%= t('email') %>:</strong>
           <%= @attend.patient.email %>
-        </p>            
-      
+        </p>
+
         <p>
           <strong><%= t('phone') %>:</strong>
           <%= @attend.patient.phone %> | <%= @attend.patient.phone2 %>
@@ -86,7 +86,7 @@
        <strong><%= t('patient') %>:</strong>
        Atendimento não vinculado ao cadastro de pacientes. [<%= link_to "Vincular ", edit_attend_path(@attend) %>]
       </p>
-<% end %>        
+<% end %>
         <p>
           <strong><%= t('exams') %>:</strong>
           <ul>
@@ -106,7 +106,7 @@
       </div><!-- /.col -->
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
       <%= image_tag @attend.avatar.url(:medium), class: "img-thumbnail" %>
-      </div><!-- /.col -->      
+      </div><!-- /.col -->
     </div> <!-- /.row -->
   </div>
 </div><!-- /panel -->

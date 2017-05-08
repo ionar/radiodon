@@ -32,9 +32,9 @@ class PatientsController < ApplicationController
       @patient.birth_date = params[:birth_date]
     end
 
-    if params[:province_id].present?
-      @patient.province_id = params[:province_id]
-    end
+    #if params[:province_id].present?
+  #    @patient.province_id = params[:province_id]
+  #  end
   end
 
   # GET /patients/1/edit
@@ -92,6 +92,6 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:filial, :name, :cpf, :rg, :gender, :birth_date, :email, :address, :city, :province_id, :cep, :phone, :phone2, :occupation, :mothers_name, :fathers_name, :notes)
+      params.require(:patient).permit(:filial, :name, :cpf, :rg, :gender, :birth_date, :email, :address, :city, :province, :cep, :phone, :phone2, :occupation, :mothers_name, :fathers_name, :notes)
     end
 end

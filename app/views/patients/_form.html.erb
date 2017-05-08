@@ -12,12 +12,12 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane fade in active" id="obrigatorio">
-      <% comment = "f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')"  %> 
+      <% comment = "f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')"  %>
       <%= f.input :filial, :label => t('filial') %>
       <%= f.input :name, :label => t('name') %>
-      <%= f.input :gender, :collection => [['M','M'],['F','F']], prompt: t('select'), :label => t('gender') %>
       <%= f.input :phone, :label => t('phone') %>
       <%= f.input :phone2, :label => t('phone2') %>
+      <%= f.input :gender, :collection => [['M','M'],['F','F']], prompt: t('select'), :label => t('gender') %>
       <%= f.input :cpf, :label => t('cpf') %>
       <%= f.input :rg, :label => t('rg') %>
       <%= f.input :notes, :label => t('notes') %>
@@ -28,7 +28,36 @@
       <%= f.input :address, :label => t('address') %>
       <%= f.input :cep, :label => t('cep')%>
       <%= f.input :city, :label => t('city')%>
-      <%= f.association :province, collection: Province.all, prompt: t('select'), :label => t('province')%>
+      <%= f.input :province, :collection => [
+        ['AC','AC'],
+        ['AL','AL'],
+        ['AM','AM'],
+        ['AP','AP'],
+        ['BA','BA'],
+        ['CE','CE'],
+        ['DF','DF'],
+        ['ES','ES'],
+        ['GO','GO'],
+        ['MA','MA'],
+        ['MG','MG'],
+        ['MS','MS'],
+        ['MT','MT'],
+        ['PA','PA'],
+        ['PB','PB'],
+        ['PE','PE'],
+        ['PI','PI'],
+        ['PR','PR'],
+        ['RJ','RJ'],
+        ['RN','RN'],
+        ['RO','RO'],
+        ['RR','RR'],
+        ['RS','RS'],
+        ['SC','SC'],
+        ['SE','SE'],
+        ['SP','SP'],
+        ['TO','TO'],
+        ['ESTRANGEIRO','ESTRANGEIRO'],
+      ], prompt: t('select'), :label => t('province') %>
       <%= f.input :occupation, :label => t('occupation') %>
       <%= f.input :mothers_name, :label => t('mothers_name') %>
       <%= f.input :fathers_name, :label => t('fathers_name') %>

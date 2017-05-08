@@ -38,10 +38,10 @@
 				        $('#attend_patient_id').val('<%= patient.id %>');
 				        //$('#attend_patient_name').val('<%= patient.name %>');
 				        // $('#attend_patient_endereco').val('<%= patient.address %>');
-						//$('#attend_patient_cidade').val('<%= patient.city %> - <%= patient.province.acronym %>');
+						//$('#attend_patient_cidade').val('<%= patient.city %> - <%= patient.province %>');
 						//$('#attend_patient_cpf').val('<%= patient.cpf %>');
 						$('#attend_patient_endereco').html('<%= patient.address %>');
-						$('#attend_patient_cidade').html('<%= patient.city %> - <%= patient.province.acronym %>');
+						$('#attend_patient_cidade').html('<%= patient.city %> - <%= patient.province %>');
 						$('#attend_patient_cpf').html('<%= patient.cpf %>');
 						$('#attend_patient_name').html('<%= patient.name %>');
 						$('#attend_patient_nascimento').html('<%= patient.birth_date.strftime("%d/%m/%Y") %>');
@@ -55,13 +55,13 @@
 				    <% end %>
 				  </tbody>
 				</table>
-						    
+
 
 		  </div><!-- /.modal-body -->
 		  <div class="modal-footer">
           <%= link_to new_patient_path(:birth_date => Date.today, :province_id => 1), :class => 'btn btn-primary', remote: true do %>
             <span class="glyphicon glyphicon-plus"></span> Cadastro rápido
-          <% end %>		  
+          <% end %>
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 		  </div>
 
