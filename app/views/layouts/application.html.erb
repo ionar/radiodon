@@ -11,6 +11,15 @@
   <%= render 'application/favicon' %>
 </head>
 <body>
+  <!-- Flash messages -->
+  <% flash.each do |type, message| %>
+  	  <div id="flash-message-wrapper" class="auto-close-alert alert <%= bootstrap_class_for(type) %> alert-dismissible fade in" role="alert">
+        <div class="container">
+  	       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  	        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <%= message %>
+        </div><!-- /container -->
+  	  </div><!-- /#flash-message-wrapper -->
+  <% end %>
 <nav class="navbar navbar-inverse" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -25,21 +34,12 @@
 		    	<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> RADIODON
 		    <% end %>
 		</div>
-			<%= if user_signed_in? 
+			<%= if user_signed_in?
 					render partial: "layouts/nav"
-				end 
+				end
 			%>
 	</div><!-- /.container -->
-</nav>			
-<!-- Flash messages -->
-<% flash.each do |type, message| %>
-	<div class="container">
-	  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible fade in" role="alert">
-	    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <%= message %>
-	  </div>
-	</div><!-- /container -->  
-<% end %>
+</nav>
 <div class="container">
 <%= yield %>
 <hr>

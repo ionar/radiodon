@@ -28,6 +28,10 @@ $(document).on("turbolinks:load", function() {
 		alert("clicado!");
 	});
 
+	$(".auto-close-alert").fadeTo(2000, 500).slideUp(500, function(){
+		$(".auto-close-alert").slideUp(500);
+	});
+
     $("#attend_requester_id").select2({
     	theme: "bootstrap"
     });
