@@ -7,10 +7,10 @@
         <h2>
 		 <%= link_to :back, :class => 'btn btn-primary' do %>
 		    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
-		  <% end %> 
+		  <% end %>
 		  <%= link_to attend_path(@attend), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
 		    <span class="glyphicon glyphicon-remove"></span> Apagar
-		  <% end %> 
+		  <% end %>
         </h2>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <span>Nome Completo: </span><span id="attend_patient_name" class="panel-patient"><%= @attend.patient.name if @attend.patient.present? %></span><br>
       <span>CPF: </span><span id="attend_patient_cpf" class="panel-patient"><%= @attend.patient.cpf if @attend.patient.present?%></span><br>
       <span>Endereço: </span><span id="attend_patient_endereco" class="panel-patient"><%= @attend.patient.address if @attend.patient.present? %></span><br>
-      <span>Cidade/UF: </span><span id="attend_patient_cidade" class="panel-patient"><%= @attend.patient.city if @attend.patient.present?%> / <%= @attend.patient.province.acronym if @attend.patient.present?%></span><br>
+      <span>Cidade/UF: </span><span id="attend_patient_cidade" class="panel-patient"><%= @attend.patient.city if @attend.patient.present?%> / <%= @attend.patient.province if @attend.patient.present?%></span><br>
       <span>Nascimento: </span><span id="attend_patient_nascimento" class="panel-patient"><%= @attend.patient.birth_date.strftime("%d/%m/%Y") if @attend.patient.present? %></span><br>
     </div><!-- /panel-body -->
   </div><!-- /panel -->
