@@ -1,5 +1,11 @@
 <h1>Informações sobre o sistema</h1>
 <hr>
+<% flash.each do |type, message| %>
+      <div class="well">
+          <span class="glyphicon glyphicon-exclamation-sign"></span> <%= message %> <br>
+          ENTRE EM CONTATO COM O ADMINISTRADOR DO SISTEMA PARA SOLICITAR ACESSO
+      </div><!-- /well -->
+<% end %>
   <div class="well">
     Clínica: <%= current_user.clinic.fantasy_name %> <br>
     Usuário: <%= current_user.email %> <br>
