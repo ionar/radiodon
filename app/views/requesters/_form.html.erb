@@ -5,7 +5,41 @@
     <%= f.input :name, :label => t("name"), autofocus: true %>
     <%= f.input :register, :label => t("register"), :hint => "Ex: CRO 3628" %>
     <%= f.input :email %>
-    <%= f.input :phone %>
+    <%= f.input :phone, :label => t("phone") %>
+    <%= f.input :phone2, :label => t("phone2") %>
+    <%= f.input :address, :label => t("address") %>
+    <%= f.input :complement, :label => t("complement") %>
+    <%= f.input :city, :label => t("city") %>
+    <%= f.input :province, :collection => [
+      ['AC','AC'],
+      ['AL','AL'],
+      ['AM','AM'],
+      ['AP','AP'],
+      ['BA','BA'],
+      ['CE','CE'],
+      ['DF','DF'],
+      ['ES','ES'],
+      ['GO','GO'],
+      ['MA','MA'],
+      ['MG','MG'],
+      ['MS','MS'],
+      ['MT','MT'],
+      ['PA','PA'],
+      ['PB','PB'],
+      ['PE','PE'],
+      ['PI','PI'],
+      ['PR','PR'],
+      ['RJ','RJ'],
+      ['RN','RN'],
+      ['RO','RO'],
+      ['RR','RR'],
+      ['RS','RS'],
+      ['SC','SC'],
+      ['SE','SE'],
+      ['SP','SP'],
+      ['TO','TO'],
+      ['ESTRANGEIRO','ESTRANGEIRO'],
+    ], prompt: t('select'), :label => t('province') %>
     <%= f.input :notes, :label => t("notes") %>
   </div>
 
