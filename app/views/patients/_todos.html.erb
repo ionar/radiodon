@@ -62,6 +62,9 @@
           <%= link_to new_patient_path(:birth_date => Date.today, :province_id => 1), :class => 'btn btn-primary', remote: true do %>
             <span class="glyphicon glyphicon-plus"></span> Cadastro rápido
           <% end %>
+      <%= link_to new_patient_path, :class => 'btn btn-info' do %>
+            <span class="glyphicon glyphicon-briefcase"></span> Cadastro completo
+          <% end %>
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 		  </div>
 

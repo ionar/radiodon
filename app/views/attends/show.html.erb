@@ -37,8 +37,9 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h3>Clínica/Agenda:</h3>
         <p><strong><%= t('clinic') %>:</strong>
-          <%= @attend.clinic.fantasy_name %> <strong><%= t('finalized') %>:</strong> <%= human_boolean(@attend.finalized) %>
+          <%= @attend.clinic.fantasy_name %>
         </p>
         <p>
           <strong><%= t('schedule') %>:</strong>
@@ -50,8 +51,13 @@
           <strong><%= t('descriptive') %>:</strong>
           <%= @attend.descriptive %>
         </p>
-
+<hr>
+<h3>Informações do paciente:</h3>
 <% if @attend.patient.present? %>
+        <p>
+          <strong><%= t('id') %>:</strong>
+            <%= @attend.patient.id %>  [<%= link_to "Completar cadastro deste paciente ", edit_patient_path(@attend.patient) %>]
+        </p>
         <p>
           <strong><%= t('patient') %>:</strong>
             <%= @attend.patient.name %> - <strong><%= t('gender') %>:</strong> <%= @attend.patient.gender %>
@@ -87,6 +93,8 @@
        Atendimento não vinculado ao cadastro de pacientes. [<%= link_to "Vincular ", edit_attend_path(@attend) %>]
       </p>
 <% end %>
+<hr>
+<h3>Informações dos exames:</h3>
         <p>
           <strong><%= t('exams') %>:</strong>
           <ul>
@@ -102,6 +110,10 @@
         <p>
           <strong><%= t('notes') %>:</strong>
           <%= @attend.notes %>
+        </p>
+        <p>
+          <strong><%= t('finalized') %>:</strong>
+          <%= human_boolean(@attend.finalized) %>
         </p>
       </div><!-- /.col -->
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">

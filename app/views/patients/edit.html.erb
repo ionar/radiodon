@@ -5,12 +5,12 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="text-right">
         <h2>
-		  <%= link_to patients_path, :class => 'btn btn-primary' do %>
+		  <%= link_to :back, :class => 'btn btn-primary' do %>
 		    <span class="glyphicon glyphicon-chevron-left"></span> Voltar
-		  <% end %> 
+		  <% end %>
 		  <%= link_to patient_path(@patient), method: :delete, :class => 'btn btn-danger', data: { confirm: t('Are you sure?')  } do %>
 		    <span class="glyphicon glyphicon-remove"></span> Apagar
-		  <% end %> 
+		  <% end %>
         </h2>
       </div>
     </div>

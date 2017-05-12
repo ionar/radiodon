@@ -6,11 +6,11 @@
           <span class="glyphicon glyphicon-lock" aria-hidden="true"> </span> Vincular ao Cadastro de Pacientes
         <% end %>
       </div>
-    <%= f.input :descriptive, :label => t('descriptive') %>
+    <%= f.input :descriptive, :label => t('descriptive'), autofocus: true %>
     <%= f.input :schedule, :label => t('schedule'), :as => :date_picker %>
     <%= f.input :appointment, :label => t('appointment'), :as => :time_picker, :hint => "De 15 em 15 minutos dentro do horário de atendimento"  %>
 
-    <%= f.hidden_field :patient_id %> 
+    <%= f.hidden_field :patient_id %>
 
     <div class="panel panel-default">
       <div class="panel-body">
@@ -18,9 +18,9 @@
         <%= f.input :avatar, :label => t('avatar'), as: :file %>
       </div><!-- /panel-body -->
     </div><!-- /panel -->
-    
 
-    <%= f.association :requester, :label => t('requester'), prompt: t('select'), :id => "select-search", collection: Requester.order('name ASC') %> 
+
+    <%= f.association :requester, :label => t('requester'), prompt: t('select'), :id => "select-search", collection: Requester.order('name ASC') %>
     <%= f.association :exam, :label => t('exams'), as: :check_boxes %>
     <%= f.input :notes, :label => t('notes') %>
     <%= f.input :finalized, :label => t('finalized')+"?" %>
