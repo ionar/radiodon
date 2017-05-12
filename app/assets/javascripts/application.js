@@ -24,6 +24,12 @@
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
+	// Every time a modal is shown, if it has an autofocus element, focus on it.
+	//Ajuste para conseguir fazer funcionar o autofocus: true dentro de um modal
+	$('.modal').on('shown.bs.modal', function() {
+	  $(this).find('[autofocus]').focus();
+	});
+
 	$('.link-paciente-selecao').click(function() {
 		alert("clicado!");
 	});
