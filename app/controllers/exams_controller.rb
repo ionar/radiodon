@@ -1,5 +1,6 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /exams
   # GET /exams.json

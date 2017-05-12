@@ -5,6 +5,7 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, autocomplete: "off", required: false %>
     <%= f.input :password_confirmation, required: false %>
+    <%= f.input :admin %>
     <%= f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select'), required: true  %>
   </div>
 

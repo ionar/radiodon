@@ -1,4 +1,7 @@
 pt-BR:
+  unauthorized:
+    manage:
+      all: "Você não tem acesso a esse recurso"  
   models_and_attributes: &models_and_attributes
     attributes:
       clinic:
@@ -10,7 +13,7 @@ pt-BR:
       clinic:
         create: 'Criar clinica'
         update: 'Atualizar clinica'
-      
+
   activerecord:
     errors:
       messages:

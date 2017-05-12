@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512144437) do
+ActiveRecord::Schema.define(version: 20170512190042) do
 
   create_table "attends", force: :cascade do |t|
     t.integer  "clinic_id",           limit: 4
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 20170512144437) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.integer  "clinic_id",              limit: 4
+    t.boolean  "admin"
+    t.string   "name",                   limit: 255
   end
 
   add_index "users", ["clinic_id"], name: "index_users_on_clinic_id", using: :btree

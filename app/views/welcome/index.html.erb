@@ -2,6 +2,8 @@
 <hr>
   <div class="well">
     Clínica: <%= current_user.clinic.fantasy_name %> <br>
+    Usuário: <%= current_user.email %> <br>
+    Administrador: <%= human_boolean(current_user.admin) %> <br>
     Ambiente: <%= Rails.env %><br>
     Uptime: <%= uptime %>
   </div>

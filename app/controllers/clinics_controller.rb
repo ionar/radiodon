@@ -1,35 +1,36 @@
 class ClinicsController < ApplicationController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
 
   # GET /clinics
   # GET /clinics.json
   def index
     @clinics = Clinic.all
-    
+
   end
 
   # GET /clinics/1
   # GET /clinics/1.json
   def show
-    
+
   end
 
   # GET /clinics/new
   def new
     @clinic = Clinic.new
-    
+
   end
 
   # GET /clinics/1/edit
   def edit
-        
+
   end
 
   # POST /clinics
   # POST /clinics.json
   def create
-    
+
     @clinic = Clinic.new(clinic_params)
 
     respond_to do |format|
@@ -46,7 +47,7 @@ class ClinicsController < ApplicationController
   # PATCH/PUT /clinics/1
   # PATCH/PUT /clinics/1.json
   def update
-    
+
     respond_to do |format|
       if @clinic.update(clinic_params)
         format.html { redirect_to @clinic, notice: t('update_success') }

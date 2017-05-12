@@ -1,5 +1,6 @@
 class AttendsController < ApplicationController
   before_action :set_attend, only: [:show, :edit, :update, :destroy, :export]
+  load_and_authorize_resource
 
    # Nós incluimos aqui a lib que vamos criar chamada generate_pdf.rb
   require './lib/generate_pdf'
@@ -114,7 +115,7 @@ class AttendsController < ApplicationController
       year_of_today = Date.today.strftime("%Y").to_i
       @attend.age = year_of_today - year_of_birth_date
     end
-    
+
     respond_to do |format|
       if @attend.update(attend_params)
 
