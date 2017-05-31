@@ -33,8 +33,7 @@
   <thead>
     <tr>
       <th><%= sort_link(@q, :name, remote: true) %></th>
-      <th><%= t("register") %></th>
-      <th><%= t("email") %></th>
+      <th><%= t("city") %></th>
       <th><%= t("phone") %></th>
     </tr>
   </thead>
@@ -43,8 +42,7 @@
     <% @requesters.each do |requester| %>
       <tr>
         <td><%= link_to requester.name, requester %></td>
-        <td><%= h(requester.register) %></td>
-        <td><%= requester.email %></td>
+        <td><%= requester.city %> <%= requester.province %></td>
         <td><%= requester.phone %></td>
       </tr>
     <% end %>

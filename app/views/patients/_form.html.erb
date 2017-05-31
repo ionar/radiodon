@@ -3,15 +3,6 @@
 
   <div class="form-inputs">
 
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#obrigatorio" data-toggle="tab">Principal</a></li>
-      <li><a href="#adicionais" data-toggle="tab">Adicionais</a></li>
-    </ul>
-<br>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div class="tab-pane fade in active" id="obrigatorio">
       <% comment = "f.association :clinic, :label => t('clinic'), label_method: :fantasy_name, value_method: :id, prompt: t('select')"  %>
       <%= f.input :filial, :label => t('filial') %>
       <%= f.input :name, :label => t('name'), autofocus: true %>
@@ -20,12 +11,10 @@
       <%= f.input :gender, :collection => [['M','M'],['F','F']], prompt: t('select'), :label => t('gender') %>
       <%= f.input :cpf, :label => t('cpf') %>
       <%= f.input :rg, :label => t('rg') %>
-      <%= f.input :notes, :label => t('notes') %>
-      </div>
-      <div class="tab-pane fade" id="adicionais">
       <%= f.input :birth_date, :label => t('birth_date'), as: :date_picker %>
       <%= f.input :email, :label => t('email') %>
       <%= f.input :address, :label => t('address') %>
+      <%= f.input :heighborhood, :label => t('heighborhood') %>
       <%= f.input :cep, :label => t('cep')%>
       <%= f.input :city, :label => t('city')%>
       <%= f.input :province, :collection => [
@@ -61,8 +50,7 @@
       <%= f.input :occupation, :label => t('occupation') %>
       <%= f.input :mothers_name, :label => t('mothers_name') %>
       <%= f.input :fathers_name, :label => t('fathers_name') %>
-      </div>
-    </div>
+      <%= f.input :notes, :label => t('notes') %>
 
   </div>
 
