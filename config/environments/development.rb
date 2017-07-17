@@ -42,5 +42,17 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   ## Conf do Devise
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  ##config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Para o devise
+  config.action_mailer.default_url_options = { host: 'http://radiodon.radiodontica.com.br/'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: ENV['RADIODON_GMAIL_DOMAIN'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['RADIODON_GMAIL_USER'],
+    password: ENV['RADIODON_GMAIL_PASSWORD']
+  }
 end
