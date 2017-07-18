@@ -42,7 +42,7 @@ class AttendsController < ApplicationController
     #filtro, usa scope no model - desativado por enquanto
     #@attends = @attends.clinic(params[:clinic]) if params[:clinic].present?
 
-
+    @aniversariantes = Patient.aniversariantes
   end
 
   # GET /attends/1

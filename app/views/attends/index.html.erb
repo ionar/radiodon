@@ -4,9 +4,10 @@
     </div>
   </div><!-- /.row -->
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">      
+    <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#diario" aria-controls="diario" role="tab" data-toggle="tab">Diário</a></li>
       <li role="presentation"><a href="#semanal" aria-controls="semanal" role="tab" data-toggle="tab">Semanal</a></li>
+      <li role="presentation"><a href="#aniversariantes" aria-controls="aniversariantes" role="tab" data-toggle="tab">Aniversariantes</a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -22,15 +23,20 @@
               <%= render partial: "listagem", locals: {attends: @attends} %>
             </div><!-- /lista-horarios -->
           </div><!-- /col -->
-        </div><!-- /row -->   
-      </div><!-- /tabpanel -->    
+        </div><!-- /row -->
+      </div><!-- /tabpanel -->
       <div role="tabpanel" class="tab-pane" id="semanal">
         <div id="semanal_calendar">
           <%= render partial: "calendar_semanal", locals: {attends: @attends_todos} %>
         </div><!-- /semanal_calendar -->
-      </div><!-- /semanal -->      
+      </div><!-- /semanal -->
+      <div role="tabpanel" class="tab-pane" id="aniversariantes">
+        <h2>Aniversariantes do dia</h2>
+        <% @aniversariantes.each do |patient| %>
+        <%= link_to patient.name, patient %> - <%=l patient.birth_date, format: :long if patient.birth_date.present? %>
+          <%= '<span class="btn btn-success btn-xs">'.html_safe + patient.email + '</span>'.html_safe if patient.email.present? %><br>
+        <% end %>
+      </div><!-- /aniversariantes -->
     </div><!-- /tab-content -->
 
 <div class="modal fade" id="attend-modal"></div>
-
-
