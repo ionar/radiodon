@@ -66,10 +66,7 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to @patient, notice: t('update_success')
-          @aniver = Patient.find(10787)
-          BirthdayMailer.greetings_email(@aniver).deliver
-         }
+        format.html { redirect_to @patient, notice: t('update_success') }
         format.json { render :show, status: :ok, location: @patient }
       else
         format.html { render :edit }
