@@ -42,9 +42,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   ## Conf do Devise
-  ##config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  ##config.action_mailer.default_url_options = { host: 'http://radiodon.radiodontica.com.br/'}
   # Para o devise
-  config.action_mailer.default_url_options = { host: 'http://radiodon.radiodontica.com.br/'}
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
