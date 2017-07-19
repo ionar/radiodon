@@ -1,5 +1,5 @@
 class BirthdayMailer < ApplicationMailer
-  default from: 'sistema@radiodontica.com.br'
+  #default from: 'sistema@radiodontica.com.br'
 
   def greetings_email(patient)
     @patient = patient
