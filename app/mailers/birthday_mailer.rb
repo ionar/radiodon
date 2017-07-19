@@ -10,4 +10,4 @@ end
 
 #Entregar via console
 #@patient = Patient.find(10787)
-#BirthdayMailer.greetings_email(@patient).deliver
+#BirthdayMailer.greetings_email(@patient).deliver_now
