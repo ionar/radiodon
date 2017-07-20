@@ -31,7 +31,7 @@
         </div><!-- /semanal_calendar -->
       </div><!-- /semanal -->
       <div role="tabpanel" class="tab-pane" id="aniversariantes">
-        <h2>Aniversariantes do dia</h2>
+        <h2>Aniversariantes do dia - <small>E-mail automático, dispara todos os dias as 8h</small></h2>
         <% @aniversariantes.each do |patient| %>
         <%= link_to patient.name, patient %> - <%=l patient.birth_date, format: :long if patient.birth_date.present? %>
           <%= '<span class="btn btn-success btn-xs">'.html_safe + patient.email + '</span>'.html_safe if patient.email.present? %><br>
