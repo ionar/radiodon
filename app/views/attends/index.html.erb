@@ -34,7 +34,7 @@
         <h2>Aniversariantes do dia - <small>E-mail automático, dispara todos os dias as 8h</small></h2>
         <% @aniversariantes.each do |patient| %>
         <%= link_to patient.name, patient %> - <%=l patient.birth_date, format: :long if patient.birth_date.present? %>
-          <%= '<span class="btn btn-success btn-xs">'.html_safe + patient.email + '</span>'.html_safe if patient.email.present? %><br>
+          <%= '<span class="btn btn-success btn-xs">'.html_safe + patient.email.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.to_s + '</span>'.html_safe if patient.email.present? %><br>
         <% end %>
       </div><!-- /aniversariantes -->
     </div><!-- /tab-content -->

@@ -17,5 +17,8 @@ end
 # Comando:
 # bundle exec rake aniversariantes:envia RAILS_ENV=production
 
+# Para integrar com shell script:
+# BUNDLE_GEMFILE=/IONAR/radiodon/Gemfile bundle exec rake -f /IONAR/radiodon/Rakefile aniversariantes:envia RAILS_ENV=production >> /var/log/LOG.ANIVER
+
 #@patient = Patient.find(10787)
 #BirthdayMailer.greetings_email(@patient).deliver_now

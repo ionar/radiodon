@@ -4,7 +4,8 @@ class BirthdayMailer < ApplicationMailer
   def greetings_email(patient)
     @patient = patient
     @url  = 'http://www.radiodontica.com.br'
-    mail(to: @patient.email, subject: 'Feliz Aniversario')
+    #arruma o endereço de email se tiver acentos e envia
+    mail(to: @patient.email.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.to_s, subject: 'Feliz Aniversario')
   end
 end
 
