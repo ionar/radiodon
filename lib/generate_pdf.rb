@@ -77,7 +77,7 @@ module GeneratePdf
 			pdf.move_down 10
 			pdf.text "Nome do pai: <b>#{attend.patient.fathers_name}</b>", inline_format: true
 			# Inclui um texto com um link clicável (usando a tag link) no bottom da folha do lado esquerdo e coloca uma cor especifica nessa parte (usando a tag color)
-			pdf.text "<link href='http://www.radiodontica.com.br'> <color rgb='5ca3e6'>www.raiodontica.com.br</color></link>", :size => 10, :inline_format => true, :valign => :bottom, :align => :left
+			pdf.text "<link href='http://www.radiodontica.com.br'> <color rgb='5ca3e6'>www.radiodontica.com.br</color></link>", :size => 10, :inline_format => true, :valign => :bottom, :align => :left
 			# Inclui em baixo da folha do lado direito a data e o némero da página usando a tag page
 			pdf.number_pages "Gerado: #{(Time.now).strftime("%d/%m/%y as %H:%M")} - Página <page>", :start_count_at => 0, :page_filter => :all, :at => [pdf.bounds.right - 140, 7], :align => :right, :size => 8
 			# Gera no nosso PDF e coloca na pasta public com o nome agreement.pdf
