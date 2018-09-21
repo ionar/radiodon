@@ -23,7 +23,24 @@
 
 //= require_tree .
 
+
+
 $(document).on("turbolinks:load", function() {
+
+	$(".sk-circle").hide();
+
+  // show spinner on AJAX start
+  $(document).ajaxStart(function(){
+    $(".sk-circle").show();
+    $("#diario").hide();
+  });
+
+  // hide spinner on AJAX stop
+  $(document).ajaxStop(function(){
+    $(".sk-circle").hide();
+    $("#diario").show();
+  });
+
 	// Every time a modal is shown, if it has an autofocus element, focus on it.
 	//Ajuste para conseguir fazer funcionar o autofocus: true dentro de um modal
 	$('.modal').on('shown.bs.modal', function() {
