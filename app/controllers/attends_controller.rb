@@ -33,8 +33,18 @@ class AttendsController < ApplicationController
       @attend.schedule = Date.current
     end
 
-    @attends_todos = Attend.where(nil)
+    if params[:start_date].present?
+      mes_para_consulta = params[:start_date].to_date
+    else
+      mes_para_consulta = Date.current
+    end
+
+    beginning_of_month = mes_para_consulta.beginning_of_month
+    end_of_month = beginning_of_month.end_of_month
+
+    @attends_todos = Attend.where(schedule: beginning_of_month..end_of_month)
     @attends_todos = @attends_todos.para_a_clinica(current_user.clinic_id)
+
 
     @attends = Attend.where(nil)
     #@attends = @attends.para_a_clinica(current_user.clinic_id)

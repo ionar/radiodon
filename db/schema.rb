@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20170531183544) do
     t.integer  "clinic_id",           limit: 4
     t.integer  "patient_id",          limit: 4
     t.date     "schedule"
-    t.time     "appointment"
     t.integer  "exam_id",             limit: 4
     t.text     "notes",               limit: 65535
     t.boolean  "finalized"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.time     "appointment"
     t.integer  "requester_id",        limit: 4
     t.string   "age",                 limit: 255
     t.string   "avatar_file_name",    limit: 255
@@ -64,18 +64,11 @@ ActiveRecord::Schema.define(version: 20170531183544) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "genders", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "patients", force: :cascade do |t|
-    t.string   "filial",       limit: 255
     t.string   "name",         limit: 255
-    t.string   "gender",       limit: 255
     t.string   "cpf",          limit: 255
     t.string   "rg",           limit: 255
+    t.string   "gender",       limit: 255
     t.date     "birth_date"
     t.string   "email",        limit: 255
     t.string   "address",      limit: 255
@@ -86,9 +79,10 @@ ActiveRecord::Schema.define(version: 20170531183544) do
     t.string   "mothers_name", limit: 255
     t.string   "fathers_name", limit: 255
     t.text     "notes",        limit: 65535
-    t.string   "city",         limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "city",         limit: 255
+    t.string   "filial",       limit: 255
     t.string   "province",     limit: 255
     t.string   "heighborhood", limit: 255
   end
